@@ -55,7 +55,7 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 40px; /* Logo එකයි Menu එකයි අතර පරතරය */
+            gap: 40px;
         }
 
         .logo img {
@@ -97,7 +97,7 @@
 
         /* Main Content Styles */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -128,10 +128,10 @@
             text-align: justify;
         }
 
-        /* Image Grid */
+        /* Image Grid - Photos 4k එක ළඟ පේන විදිහට හැදූ Grid එක */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr); /* පේළියකට පින්තූර 2 බැගින් (மொට්ටම් 4ම ලස්සනට පෙන්වීමට) */
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -202,7 +202,10 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr; /* ෆෝන් එකකදී එක යට එකට පින්තූර 4 පෙන්වීමට */
+            }
             .nav-left {
                 flex-direction: column;
                 align-items: flex-start;
@@ -255,7 +258,7 @@
             <p>We also provide curated wellness packages for weight management, stress relief, detoxification, skin rejuvenation, muscle recovery, sleep improvement, sinus relief, and women’s health. Each treatment and package is tailored to harmonize the body, mind, and spirit, blending ancient Ayurvedic wisdom with modern care for lasting wellness.</p>
         </div>
 
-        <!-- Image Showcase Grid -->
+        <!-- Image Showcase Grid (Photos 4k) -->
         <div class="image-grid">
             <div class="image-card">
                 <a href="https://kashiwellness.lk/prices-page/">
