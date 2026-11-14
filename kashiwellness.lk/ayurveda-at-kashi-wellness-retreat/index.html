@@ -44,23 +44,30 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px; /* Logo එකයි Menu එකයි අතර පරතරය */
+        }
+
         .logo img {
-            max-height: 50px;
+            max-height: 45px;
             width: auto;
+            display: block;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -68,7 +75,7 @@
             text-decoration: none;
             color: var(--primary-color);
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             transition: color 0.3s ease;
         }
 
@@ -79,7 +86,7 @@
         .book-btn {
             background-color: var(--primary-color);
             color: var(--white) !important;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 25px;
             transition: background 0.3s ease;
         }
@@ -195,41 +202,45 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .nav-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
             nav ul {
-                display: none; /* Can be expanded for mobile drawer if needed */
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .text-content {
-                padding: 20px;
+                flex-wrap: wrap;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header with Left-Aligned Logo & Menu Bar -->
     <header>
         <div class="nav-container">
-            <div class="logo">
-                <a href="https://kashiwellness.lk">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2025/12/Logo-trans-600-x-250-px_fit%3D600%252C250%26ssl%3D1.png" alt="Kashi Wellness Retreat">
-                </a>
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="https://kashiwellness.lk">
+                        <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2025/12/Logo-trans-600-x-250-px_fit%3D600%252C250%26ssl%3D1.png" alt="Kashi Wellness Retreat">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="https://kashiwellness.lk/">Home</a></li>
+                        <li><a href="https://kashiwellness.lk/prices-page/">Menu</a></li>
+                        <li><a href="https://kashiwellness.lk/our-branches/">Our Branches</a></li>
+                        <li><a href="https://kashiwellness.lk/about-us/">About Us</a></li>
+                        <li><a href="https://kashiwellness.lk/shop/">Shop</a></li>
+                        <li><a href="https://kashiwellness.lk/offers/">Offers</a></li>
+                        <li><a href="https://kashiwellness.lk/contacts/">Contacts</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="https://kashiwellness.lk/">Home</a></li>
-                    <li><a href="https://kashiwellness.lk/prices-page/">Menu</a></li>
-                    <li><a href="https://kashiwellness.lk/our-branches/">Our Branches</a></li>
-                    <li><a href="https://kashiwellness.lk/about-us/">About Us</a></li>
-                    <li><a href="https://kashiwellness.lk/shop/">Shop</a></li>
-                    <li><a href="https://kashiwellness.lk/offers/">Offers</a></li>
-                    <li><a href="https://kashiwellness.lk/contacts/">Contacts</a></li>
-                    <li><a href="https://kashiwellness.lk/book-appointment/" class="book-btn">Book Now</a></li>
-                </ul>
-            </nav>
+            <div class="nav-right">
+                <a href="https://kashiwellness.lk/book-appointment/" class="book-btn">Book Now</a>
+            </div>
         </div>
     </header>
 
