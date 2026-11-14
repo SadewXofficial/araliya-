@@ -1,0 +1,24 @@
+@charset "utf-8";
+/*
+Theme Name: Zen Retreat
+Theme URI: https://zen-retreat.cmsmasters.net/
+Author: cmsmasters
+Author URI: https://cmsmasters.net/
+Description: Zen Retreat – Wellness Resort & Yoga Center WordPress Theme is a serene and flexible solution crafted for wellness resorts, yoga studios, and retreat centers. Featuring custom post types for Programs and Instructor Profiles, integrated Events Calendar, and full WooCommerce support, this theme gives you everything you need to showcase classes, manage bookings, and offer products or services online.
+Version: 1.0.2
+Tested up to: 6.6
+Requires PHP: 7.4
+License:
+License URI:
+Text Domain: zen-retreat
+Domain Path: /theme-config/languages
+Copyright: cmsmasters 2024 / All Rights Reserved
+Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+*/
+
+
+.sticky,
+.bypostauthor,
+.screen-reader-text {
+  outline: none;
+}

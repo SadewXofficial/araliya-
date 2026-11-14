@@ -1,0 +1,171 @@
+/* =====================================================
+   Kashi Gift Voucher – Frontend Styles
+   ===================================================== */
+
+:root {
+  --kgv-primary: #7C3AED;
+  --kgv-primary-light: #EDE9FE;
+  --kgv-accent: #D97706;
+  --kgv-success: #059669;
+  --kgv-success-light: #D1FAE5;
+  --kgv-info-light: #DBEAFE;
+  --kgv-danger: #DC2626;
+  --kgv-border: #E5E7EB;
+  --kgv-text: #1F2937;
+  --kgv-muted: #6B7280;
+  --kgv-bg: #F9FAFB;
+  --kgv-white: #ffffff;
+  --kgv-radius: 12px;
+  --kgv-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.kgv-wrap { max-width: 720px; margin: 0 auto; font-family: 'Segoe UI', system-ui, sans-serif; color: var(--kgv-text); }
+.kgv-hidden { display: none !important; }
+
+/* Images */
+.kgv-images { display: flex; gap: 16px; margin-bottom: 28px; justify-content: center; }
+.kgv-feat-img img { width: 100%; max-width: 320px; border-radius: var(--kgv-radius); box-shadow: var(--kgv-shadow); }
+
+/* Header */
+.kgv-title { font-size: 2rem; font-weight: 800; color: var(--kgv-primary); margin: 0 0 6px; text-align: center; }
+.kgv-subtitle { text-align: center; color: var(--kgv-muted); margin-bottom: 28px; }
+
+/* Section */
+.kgv-section {
+  background: var(--kgv-white);
+  border: 1px solid var(--kgv-border);
+  border-radius: var(--kgv-radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.kgv-section h3 {
+  font-size: 1.05rem; font-weight: 700; margin: 0 0 16px;
+  color: var(--kgv-primary); border-bottom: 2px solid var(--kgv-primary-light);
+  padding-bottom: 8px;
+}
+
+/* Fields */
+.kgv-field { margin-bottom: 16px; }
+.kgv-field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+.kgv-field input[type="text"],
+.kgv-field input[type="tel"],
+.kgv-field input[type="email"],
+.kgv-field input[type="number"] {
+  width: 100%; box-sizing: border-box;
+  padding: 12px 14px;
+  border: 2px solid var(--kgv-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color .2s;
+  outline: none;
+}
+.kgv-field input:focus { border-color: var(--kgv-primary); }
+.req { color: var(--kgv-danger); }
+.kgv-hint { font-size: 0.82rem; color: var(--kgv-muted); margin-top: 6px; }
+
+/* Radio Cards */
+.kgv-radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kgv-radio-card { cursor: pointer; }
+.kgv-radio-card input[type="radio"] { display: none; }
+.kgv-radio-box {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 18px 12px; border: 2px solid var(--kgv-border);
+  border-radius: var(--kgv-radius); text-align: center;
+  transition: all .2s; background: var(--kgv-bg);
+}
+.kgv-radio-box:hover { border-color: var(--kgv-primary); background: var(--kgv-primary-light); }
+.kgv-radio-card input:checked + .kgv-radio-box {
+  border-color: var(--kgv-primary); background: var(--kgv-primary-light);
+  box-shadow: 0 0 0 3px rgba(124,58,237,.15);
+}
+.kgv-radio-icon { font-size: 2rem; margin-bottom: 8px; }
+.kgv-radio-label { font-weight: 700; font-size: 0.95rem; color: var(--kgv-text); }
+.kgv-radio-desc { font-size: 0.78rem; color: var(--kgv-muted); margin-top: 4px; }
+
+/* Notices */
+.kgv-notice {
+  padding: 14px 18px; border-radius: 8px; margin-bottom: 14px; font-size: 0.9rem;
+}
+.kgv-notice-success { background: var(--kgv-success-light); border: 1px solid #6EE7B7; color: #065F46; }
+.kgv-notice-info { background: var(--kgv-info-light); border: 1px solid #93C5FD; color: #1E40AF; }
+
+/* Bank Details */
+.kgv-bank-details {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+  border-radius: var(--kgv-radius); margin-top: 16px; overflow: hidden;
+}
+.kgv-bank-header {
+  background: rgba(255,255,255,.1); padding: 12px 20px;
+  font-weight: 700; color: #fff; font-size: 1rem;
+}
+.kgv-bank-body { padding: 16px 20px; }
+.kgv-bank-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.1);
+  color: #C7D2FE; font-size: 0.9rem;
+}
+.kgv-bank-row strong { color: #fff; font-size: 0.95rem; }
+.kgv-bank-row:last-child { border: none; }
+.kgv-bank-slip { margin-top: 14px; padding: 12px; background: rgba(255,255,255,.1); border-radius: 8px; color: #C7D2FE; font-size: 0.85rem; }
+.kgv-bank-slip a { color: #A5F3FC; }
+
+/* Summary */
+.kgv-summary { background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-color: #C4B5FD; }
+.kgv-summary-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #DDD6FE; font-size: 0.95rem; }
+.kgv-summary-total { display: flex; justify-content: space-between; padding: 14px 0 0; font-size: 1.25rem; font-weight: 800; color: var(--kgv-primary); margin-top: 8px; }
+
+/* Terms */
+.kgv-terms-box {
+  background: var(--kgv-bg); border: 1px solid var(--kgv-border);
+  border-radius: 8px; padding: 16px; font-size: 0.85rem; color: var(--kgv-muted);
+  max-height: 180px; overflow-y: auto; margin-bottom: 14px; line-height: 1.6;
+}
+.kgv-checkbox { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; }
+.kgv-checkbox input { width: 18px; height: 18px; accent-color: var(--kgv-primary); }
+
+/* Error */
+.kgv-error { background: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B; padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 14px; }
+
+/* Submit button */
+.kgv-btn-purchase {
+  width: 100%; padding: 18px; font-size: 1.1rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--kgv-primary), #6D28D9);
+  color: #fff; border: none; border-radius: var(--kgv-radius);
+  cursor: pointer; transition: all .2s; box-shadow: 0 4px 16px rgba(124,58,237,.4);
+  letter-spacing: .5px;
+}
+.kgv-btn-purchase:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,.5); }
+.kgv-btn-purchase:active { transform: translateY(0); }
+
+/* Modal */
+.kgv-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 99999; padding: 20px;
+}
+.kgv-modal {
+  background: var(--kgv-white); border-radius: 20px; padding: 40px 32px;
+  max-width: 460px; width: 100%; text-align: center;
+  box-shadow: 0 24px 60px rgba(0,0,0,.2); animation: kgvFadeIn .3s ease;
+}
+@keyframes kgvFadeIn { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
+.kgv-modal-icon { font-size: 4rem; margin-bottom: 12px; }
+.kgv-modal h2 { font-size: 1.6rem; color: var(--kgv-primary); margin: 0 0 10px; }
+.kgv-modal p { color: var(--kgv-muted); margin-bottom: 24px; }
+
+.kgv-modal-actions { display: flex; flex-direction: column; gap: 12px; }
+.kgv-btn { padding: 14px 20px; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all .2s; }
+.kgv-btn-wa { background: #25D366; color: #fff; }
+.kgv-btn-wa:hover { background: #128C7E; }
+.kgv-btn-email { background: #6366F1; color: #fff; }
+.kgv-btn-email:hover { background: #4F46E5; }
+.kgv-btn-copy { background: var(--kgv-bg); border: 2px solid var(--kgv-border); color: var(--kgv-text); }
+.kgv-btn-copy:hover { background: var(--kgv-border); }
+.kgv-modal-close { margin-top: 16px; background: none; border: none; color: var(--kgv-muted); cursor: pointer; font-size: 0.9rem; }
+
+@media (max-width: 520px) {
+  .kgv-radio-group { grid-template-columns: 1fr; }
+  .kgv-images { flex-direction: column; align-items: center; }
+  .kgv-title { font-size: 1.5rem; }
+}

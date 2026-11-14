@@ -1,0 +1,126 @@
+/*
+ * Mintpay price-breakdown and promo styles.
+ *
+ * The product-page breakdown is injected into the theme's price markup, so its
+ * rules are scoped under .mintpay-price-breakdown and the images are pinned with
+ * !important: themes almost always ship `li.product img { width: 100% }`, which
+ * would otherwise stretch the logo and info icon to the full card width. The
+ * scoping also keeps these rules from leaking out onto the theme.
+ */
+
+/* Product / variation installment line. */
+.mintpay-price-breakdown {
+    display: block;
+    margin: 6px 0;
+    /* #595959 ≈ 7:1 on white — clears WCAG 1.4.3 AA for this decision-relevant
+       pricing text (the old #8e8e8e was ~2.9:1). */
+    color: #595959;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mintpay-price-breakdown b {
+    font-weight: 700;
+    color: inherit;
+}
+
+/* Logo + info icon: reset to a fixed inline size, immune to theme img rules. */
+.mintpay-price-breakdown img.mintpay-logo,
+.mintpay-price-breakdown img.mintpay-info-icon {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    float: none !important;
+    vertical-align: middle !important;
+}
+
+.mintpay-price-breakdown img.mintpay-logo {
+    height: 18px !important;
+    margin: 0 4px !important;
+}
+
+.mintpay-price-breakdown img.mintpay-info-icon {
+    width: 14px !important;
+    height: 14px !important;
+    margin-left: 4px !important;
+    cursor: pointer;
+}
+
+/* Info link: strip theme link decoration/spacing so the icon stays inline. */
+.mintpay-price-breakdown a {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    line-height: normal !important;
+    vertical-align: middle !important;
+}
+
+/*
+ * First-purchase promo banner (classic checkout).
+ *
+ * Font size, family and colour inherit from the checkout so the banner matches
+ * the theme; the logo height is set in `em` so it scales with that inherited
+ * font size, preserving the previous 25px-logo / 20px-text (1.25em) ratio at any
+ * size. !important keeps the layout consistent against themes that restyle the
+ * order-review area. (Inheriting the font also removes the need for the old
+ * responsive font/logo breakpoints — the theme handles responsive sizing.)
+ */
+.mintpay-checkout-promo {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.25em !important;
+    margin-bottom: 4px !important;
+    /* 0.8em = 20% smaller than the inherited size; the em-based logo and gap
+       scale with it, so the whole banner shrinks proportionally. */
+    font-size: 0.8em !important;
+}
+
+.mintpay-checkout-promo .mintpay-logo {
+    height: 1.25em !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+}
+
+/*
+ * Promo inside the blocks checkout order-summary slot.
+ *
+ * The classic .mintpay-checkout-promo styling is a flex banner sized for the
+ * wide order-review table and wraps badly in the narrow blocks summary column,
+ * so it is overridden here into a compact inline line with the logo flowing
+ * after the copy. The text uses the order-summary's base font (matching the
+ * Subtotal rows — not the larger Total) and the logo scales with it; `font-size:
+ * 1em` also cancels the classic banner's 0.8em down-scale. Three-class selectors
+ * keep these overrides ahead of the classic rules regardless of source order.
+ */
+.mintpay-blocks-promo {
+    margin: 12px 0 0;
+    line-height: 1.6;
+}
+
+.mintpay-blocks-promo .mintpay-checkout-promo {
+    display: block !important;
+    /* Horizontal inset matching the Subtotal/Total rows. Applied here on the
+       inner element because WooCommerce overrides padding on the outer
+       .mintpay-blocks-promo via its `.slot-wrapper > * > *` rule. */
+    margin: 0 16px !important;
+    font-size: 1em !important;
+    line-height: 1.6 !important;
+    color: inherit !important;
+}
+
+.mintpay-blocks-promo .mintpay-checkout-promo .mintpay-logo {
+    display: inline-block !important;
+    height: 1.25em !important;
+    width: auto !important;
+    margin: 0 0 0 4px !important;
+    vertical-align: middle !important;
+}
