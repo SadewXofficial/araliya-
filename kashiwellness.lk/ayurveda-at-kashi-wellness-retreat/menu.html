@@ -16,8 +16,7 @@
     
     <!-- Custom Professional Wellness CSS -->
     <style>
-    
-    /* Fade-in Animation Effect */
+        /* Fade-in Animation Effect */
         @keyframes fadeInAnimation {
             from {
                 opacity: 0;
@@ -31,15 +30,14 @@
 
         .treatment-card {
             animation: fadeInAnimation 0.8s ease-out forwards;
-            opacity: 0; /* මුලින් ටිකක් සඟවා තැබේ */
+            opacity: 0;
         }
 
-        /* පින්තූර එකින් එක පිළිවෙළට (Delay එකක් සහිතව) ලස්සනට මතු වීමට */
-        .treatment-card:nth-child(1) { animation-delay: 0.5s; }
-        .treatment-card:nth-child(2) { animation-delay: 0.7s; }
-        .treatment-card:nth-child(3) { animation-delay: 0.9s; }
-        .treatment-card:nth-child(4) { animation-delay: 1.1s; }
-        .treatment-card:nth-child(5) { animation-delay: 1.3s; }
+        .treatment-card:nth-child(1) { animation-delay: 0.2s; }
+        .treatment-card:nth-child(2) { animation-delay: 0.4s; }
+        .treatment-card:nth-child(3) { animation-delay: 0.6s; }
+        .treatment-card:nth-child(4) { animation-delay: 0.8s; }
+        .treatment-card:nth-child(5) { animation-delay: 1.0s; }
         
         :root {
             --primary-color: #1a3328;
@@ -158,23 +156,23 @@
             flex-direction: column;
             gap: 40px;
         }
-        /* Highlighted Full Body Massage Card */
+
+        /* Highlighted Full Body Massage Card (Fixed with no black spaces) */
         .treatment-card.highlight {
             grid-template-columns: 1fr;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border: 2px solid var(--accent-color);
+            background-color: var(--white);
         }
 
         .treatment-card.highlight img {
             width: 100%;
-            height: auto;       /* Fixed height එක අයින් කරලා auto දුන්නම photo එක කපී යන්නේ නැහැ */
-            max-height: 500px;  /* වැඩිපුර ලොකු වීම පාලනය කිරීමට */
-            object-fit: contain; /* සම්පූර්ණ photo එකම ඇතුළට මح වෙනවා */
-            background-color: #000; /* image එක වටේ background එක ලස්සනට තබා ගැනීමට */
+            height: auto;
+            max-height: none;
+            object-fit: cover;
             display: block;
             margin: 0 auto;
         }
-
 
         .treatment-card.highlight .treatment-info {
             padding: 40px;
@@ -333,9 +331,6 @@
         @media (max-width: 768px) {
             .treatment-card {
                 grid-template-columns: 1fr;
-            }
-            .treatment-card.highlight img {
-                height: 250px;
             }
             .nav-container {
                 flex-direction: column;
