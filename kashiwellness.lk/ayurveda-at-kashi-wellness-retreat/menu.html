@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Treatment Menu & Prices - Araliyā Wellness Retreat</title>
     <meta name="description" content="Explore our authentic Ayurvedic treatments, wellness packages, and pricing at Araliyā Wellness Retreat in Habarana.">
-    
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    
     <!-- Custom Professional Wellness CSS -->
     <style>
         :root {
@@ -127,11 +127,40 @@
             margin: 0 auto 40px auto;
         }
 
-        /* Treatment Menu Grid (Photos 5 and Prices) */
+        /* Treatment Menu Grid */
         .treatment-grid {
             display: flex;
             flex-direction: column;
             gap: 40px;
+        }
+
+        /* Highlighted Full Body Massage Card */
+        .treatment-card.highlight {
+            grid-template-columns: 1fr;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-color);
+        }
+
+        .treatment-card.highlight img {
+            height: 400px;
+            object-position: center 20%;
+        }
+
+        .treatment-card.highlight .treatment-info {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .treatment-card.highlight h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .treatment-card.highlight p {
+            font-size: 17px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .treatment-card {
@@ -172,6 +201,15 @@
             color: #666;
             font-size: 15px;
             margin-bottom: 20px;
+        }
+
+        .special-offer {
+            font-family: 'Marcellus', serif;
+            color: var(--accent-color);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .price-tag {
@@ -266,6 +304,9 @@
             .treatment-card {
                 grid-template-columns: 1fr;
             }
+            .treatment-card.highlight img {
+                height: 250px;
+            }
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
@@ -316,20 +357,21 @@
         <p class="section-subtitle">Experience ultimate relaxation with our authentic Ayurvedic therapies and wellness packages.</p>
         <div class="divider"></div>
 
-        <!-- Treatment List with 5 Photos and Prices -->
+        <!-- Treatment List -->
         <div class="treatment-grid">
-            
-            <!-- Treatment 1 -->
-            <div class="treatment-card">
-                <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Full Body Herbal Massage">
+            
+            <!-- Highlighted Full Body Massage -->
+            <div class="treatment-card highlight">
+                <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Signature Full Body Massage">
                 <div class="treatment-info">
-                    <h3>Full Body Herbal Massage</h3>
-                    <p>Traditional full-body warm herbal oil massage designed to improve blood circulation, relieve muscle tension, and restore deep body relaxation.</p>
-                    <div class="price-tag">USD 45 / LKR 14,000</div>
+                    <span class="special-offer">Special Offer</span>
+                    <h3>Araliyā Signature Full Body Massage</h3>
+                    <p>Indulge in our most comprehensive healing. This deeply relaxing, therapeutic full-body oil massage, using custom-blended Araliyā essential oils, relieves muscle tension and restores deep tranquility. (90 Minutes)</p>
+                    <div class="price-tag">USD 65 / LKR 20,000</div>
                 </div>
             </div>
 
-            <!-- Treatment 2 -->
+            <!-- Other Treatments -->
             <div class="treatment-card">
                 <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png" alt="Shirodhara Therapy">
                 <div class="treatment-info">
@@ -339,7 +381,6 @@
                 </div>
             </div>
 
-            <!-- Treatment 3 -->
             <div class="treatment-card">
                 <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/ChatGPT-Image-Jun-15-2026-06_11_14-PM-1_fit%3D1024%252C1024%26ssl%3D1.png" alt="Ayurvedic Doctor Consultation">
                 <div class="treatment-info">
@@ -349,7 +390,6 @@
                 </div>
             </div>
 
-            <!-- Treatment 4 -->
             <div class="treatment-card">
                 <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-16-1_fit%3D1000%252C1000%26ssl%3D1.png" alt="Herbal Steam & Facial Care">
                 <div class="treatment-info">
@@ -359,7 +399,6 @@
                 </div>
             </div>
 
-            <!-- Treatment 5 (අපේ 5 වැනි පින්තූරය සඳහා හෝ වෙනත් අවශ්‍ය treatment එකකට) -->
             <div class="treatment-card">
                 <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Pottali Sweda (Herbal Poultice)">
                 <div class="treatment-info">
