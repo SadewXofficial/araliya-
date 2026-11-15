@@ -158,7 +158,6 @@
             flex-direction: column;
             gap: 40px;
         }
-
         /* Highlighted Full Body Massage Card */
         .treatment-card.highlight {
             grid-template-columns: 1fr;
@@ -167,9 +166,15 @@
         }
 
         .treatment-card.highlight img {
-            height: 400px;
-            object-position: center 20%;
+            width: 100%;
+            height: auto;       /* Fixed height එක අයින් කරලා auto දුන්නම photo එක කපී යන්නේ නැහැ */
+            max-height: 500px;  /* වැඩිපුර ලොකු වීම පාලනය කිරීමට */
+            object-fit: contain; /* සම්පූර්ණ photo එකම ඇතුළට මح වෙනවා */
+            background-color: #000; /* image එක වටේ background එක ලස්සනට තබා ගැනීමට */
+            display: block;
+            margin: 0 auto;
         }
+
 
         .treatment-card.highlight .treatment-info {
             padding: 40px;
