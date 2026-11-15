@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for WhatsApp Icon -->
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom Professional Wellness CSS -->
     <style>
         :root {
-            --primary-color: #2c4a3e;
+            --primary-color: #1a3328;
             --accent-color: #c5a880;
             --text-dark: #333333;
             --bg-light: #f9f8f6;
@@ -100,7 +100,7 @@
 
         /* Main Content Styles */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -110,7 +110,7 @@
             font-size: 36px;
             color: var(--primary-color);
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .divider {
@@ -125,17 +125,25 @@
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            font-size: 17px;
+            font-size: 16px;
             color: #555;
             margin-bottom: 40px;
             text-align: justify;
         }
 
+        .text-content p {
+            margin-bottom: 15px;
+        }
+
+        .text-content p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Image Grid (Photos 4k) */
         .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             margin-bottom: 40px;
         }
 
@@ -145,16 +153,19 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .image-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .image-card img {
             width: 100%;
+            max-width: 600px;
             height: auto;
             display: block;
+            margin: 0 auto;
         }
 
         /* WhatsApp Floating Button */
@@ -201,20 +212,24 @@
 
         footer h3 {
             font-family: 'Marcellus', serif;
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 15px;
             color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         footer p, footer li {
             font-size: 14px;
             margin-bottom: 8px;
             list-style: none;
+            color: #ddd;
         }
 
         footer a {
             color: var(--white);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         footer a:hover {
@@ -230,18 +245,20 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .image-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
             }
             .nav-left {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+                gap: 15px;
+                text-align: center;
             }
             nav ul {
                 flex-wrap: wrap;
-                gap: 15px;
+                justify-content: center;
+                gap: 10px;
             }
         }
     </style>
@@ -282,11 +299,10 @@
 
         <div class="text-content">
             <p>At Kashi Ayurveda, we offer a wide range of authentic Ayurvedic treatments and wellness packages designed to restore balance, rejuvenate the body, and enhance overall wellbeing. Our therapies include personalized doctor consultations, traditional full-body and specialized massages, herbal treatments like Shirodhara, Udvartana, Pottali Sweda, and targeted therapies for back, neck, shoulder, foot, and facial care.</p>
-            <br>
             <p>We also provide curated wellness packages for weight management, stress relief, detoxification, skin rejuvenation, muscle recovery, sleep improvement, sinus relief, and women’s health. Each treatment and package is tailored to harmonize the body, mind, and spirit, blending ancient Ayurvedic wisdom with modern care for lasting wellness.</p>
         </div>
 
-        <!-- Image Showcase Grid (Photos 4k) -->
+        <!-- Image Showcase Grid (Photos 4k එක යට එකට ලස්සනට) -->
         <div class="image-grid">
             <div class="image-card">
                 <a href="https://kashiwellness.lk/prices-page/">
