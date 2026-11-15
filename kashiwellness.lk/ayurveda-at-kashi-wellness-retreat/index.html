@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
+    <!-- FontAwesome for WhatsApp Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Custom Professional Wellness CSS -->
     <style>
         :root {
@@ -128,10 +131,10 @@
             text-align: justify;
         }
 
-        /* Image Grid - Photos 4k එක ළඟ පේන විදිහට හැදූ Grid එක */
+        /* Image Grid (Photos 4k) */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* පේළියකට පින්තූර 2 බැගින් (மொට්ටම් 4ම ලස්සනට පෙන්වීමට) */
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -152,6 +155,31 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
         }
 
         /* Footer */
@@ -204,7 +232,7 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: 1fr; /* ෆෝන් එකකදී එක යට එකට පින්තූර 4 පෙන්වීමට */
+                grid-template-columns: 1fr;
             }
             .nav-left {
                 flex-direction: column;
@@ -282,6 +310,11 @@
             </div>
         </div>
     </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/94761390204" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer>
