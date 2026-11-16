@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Special Offers - Araliyā Wellness Retreat</title>
+    <meta name="description" content="Discover our exclusive wellness packages and special offers at Araliyā Wellness Retreat in Habarana.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Professional Wellness CSS -->
+    <style>
+        /* Fade-in Animation Effect */
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .offer-card {
+            animation: fadeInAnimation 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .offer-card:nth-child(1) { animation-delay: 0.3s; }
+        .offer-card:nth-child(2) { animation-delay: 0.6s; }
+
+        :root {
+            --primary-color: #1a3328;
+            --accent-color: #c5a880;
+            --text-dark: #333333;
+            --bg-light: #f9f8f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo img {
+            max-height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .book-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Banner Section with Luxury Background */
+        .offers-hero {
+            background: linear-gradient(rgba(26, 51, 40, 0.85), rgba(26, 51, 40, 0.85)), url('Full body.jpeg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 50px;
+        }
+
+        .offers-hero h1 {
+            font-family: 'Marcellus', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        .offers-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e2d9cd;
+        }
+
+        .divider {
+            height: 3px;
+            width: 60px;
+            background-color: var(--accent-color);
+            margin: 20px auto 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Offers Grid Layout (2 Photos & Details) */
+        .offers-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .offer-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .offer-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 280px;
+        }
+
+        .offer-info {
+            padding: 40px;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            color: var(--white);
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .offer-info h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 26px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .offer-info p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .offer-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .offer-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer p, footer li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style: none;
+            color: #ddd;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .offer-card {
+                grid-template-columns: 1fr;
+            }
+            .offers-hero h1 {
+                font-size: 32px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-left {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="IMG_0549.jpeg" alt="Araliyā Wellness Retreat">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="offers.html" class="active">Offers</a></li>
+                        <li><a href="index.html#branches">Our Branches</a></li>
+                        <li><a href="index.html#contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <a href="https://wa.me/94762520630" class="book-btn" target="_blank">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Luxury Hero Background Banner -->
+    <section class="offers-hero">
+        <h1>Exclusive Wellness Offers</h1>
+        <p>Immerse yourself in complete rejuvenation with our specially curated seasonal packages designed for ultimate mind and body balance.</p>
+        <div class="divider"></div>
+    </section>
+
+    <!-- Main Offers Content -->
+    <main class="container">
+        <div class="offers-grid">
+            
+            <!-- Offer Card 1 -->
+            <div class="offer-card">
+                <img src="Full body.jpeg" alt="Couple's Royal Rejuvenation">
+                <div class="offer-info">
+                    <span class="badge">Limited Time Offer</span>
+                    <h3>Royal Couple’s Rejuvenation Package</h3>
+                    <p>Experience a synchronized 90-minute full body herbal oil massage followed by a relaxing herbal steam bath. Specially designed to melt away stress and restore deep harmony together in our tranquil spa setup.</p>
+                    <a href="https://wa.me/94762520630?text=I%20want%20to%20book%20the%20Royal%20Couple%E2%80%99s%20Rejuvenation%20Package" class="offer-btn" target="_blank">Claim Offer</a>
+                </div>
+            </div>
+
+            <!-- Offer Card 2 -->
+            <div class="offer-card">
+                <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png" alt="Ayurvedic Detox & Shirodhara Escape">
+                <div class="offer-info">
+                    <span class="badge">Special Package</span>
+                    <h3>Ayurvedic Detox & Shirodhara Escape</h3>
+                    <p>A comprehensive 2-hour healing session combining an expert doctor consultation, a soothing Shirodhara treatment with warm medicated oils, and targeted herbal therapies for total inner cleansing.</p>
+                    <a href="https://wa.me/94762520630?text=I%20want%20to%20book%20the%20Ayurvedic%20Detox%20%26%20Shirodhara%20Escape" class="offer-btn" target="_blank">Claim Offer</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/94762520630" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Araliyā Ayurveda & Wellness</h3>
+                <p>No 73, Cinnamon Lodge, Habarana, Sri Lanka</p>
+                <p>Phone: <a href="https://wa.me/94762520630">+94 76 252 0630</a></p>
+                <p>Email: <a href="mailto:araliyaayurvedicspa@gmail.com">araliyaayurvedicspa@gmail.com</a></p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="menu.html">Treatment Menu</a></p>
+                <p><a href="offers.html">Offers</a></p>
+                <p><a href="https://wa.me/94762520630" target="_blank">Book an Appointment</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Araliyā Ayurvedic & Wellness Retreat is a Sri Lanka Tourism Development Authority approved Ayurveda Wellness Retreat</p>
+            <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
+        </div>
+    </footer>
+
+</body>
+</html>
