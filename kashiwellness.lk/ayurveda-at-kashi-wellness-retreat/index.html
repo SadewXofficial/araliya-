@@ -100,7 +100,7 @@
 
         /* Main Content Styles */
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -110,7 +110,15 @@
             font-size: 36px;
             color: var(--primary-color);
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
         }
 
         .divider {
@@ -142,7 +150,7 @@
         /* TripAdvisor Travelers' Choice Badge */
         .tripadvisor-badge-container {
             text-align: center !important;
-            margin: 20px auto 35px auto !important;
+            margin: 20px auto 50px auto !important;
             width: 100% !important;
         }
 
@@ -172,33 +180,81 @@
             }
         }
 
-        /* Image Grid (Photos 4k) */
-        .image-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        /* Our Place Section & Animations */
+        @keyframes placeFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .our-place-section {
+            margin-top: 20px;
             margin-bottom: 40px;
         }
 
-        .image-card {
+        .place-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .place-card {
+            position: relative;
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            text-align: center;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            animation: placeFadeUp 0.8s ease-out forwards;
+            opacity: 0;
+            aspect-ratio: 4 / 3;
         }
 
-        .image-card:hover {
-            transform: translateY(-3px);
-        }
+        .place-card:nth-child(1) { animation-delay: 0.15s; }
+        .place-card:nth-child(2) { animation-delay: 0.3s; }
+        .place-card:nth-child(3) { animation-delay: 0.45s; }
+        .place-card:nth-child(4) { animation-delay: 0.6s; }
 
-        .image-card img {
+        .place-card img {
             width: 100%;
-            max-width: 600px;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin: 0 auto;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .place-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .place-caption {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 18px 20px;
+            background: linear-gradient(to top, rgba(26, 51, 40, 0.9), rgba(26, 51, 40, 0));
+            color: var(--white);
+            transform: translateY(8px);
+            opacity: 0.92;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .place-card:hover .place-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .place-caption span {
+            font-family: 'Marcellus', serif;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: #f4e6d0;
+            display: block;
         }
 
         /* WhatsApp Floating Button */
@@ -294,6 +350,19 @@
                 gap: 10px;
             }
         }
+
+        @media (max-width: 650px) {
+            .place-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .text-content {
+                padding: 25px 20px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -303,23 +372,22 @@
         <div class="nav-container">
             <div class="nav-left">
                 <div class="logo">
-                    <a href="https://kashiwellness.lk">
+                    <a href="index.html">
                         <img src="IMG_0549.jpeg" alt="Araliyā Wellness Retreat">
                     </a>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="https://kashiwellness.lk/">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
-                        <li><a href="Offers.html">Offers</a></li>
-                        <li><a href="blank">About Us</a></li>
-                        <li><a href="blank">Shop</a></li>
-                        <li><a href="blank">Contacts</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="#our-place">Our Place</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="nav-right">
-                <a href="https://kashiwellness.lk/book-appointment/" class="book-btn">Book Now</a>
+                <a href="https://wa.me/94762520630" class="book-btn" target="_blank">Book Now</a>
             </div>
         </div>
     </header>
@@ -341,29 +409,42 @@
             </a>
         </div>
 
-        <!-- Image Showcase Grid (Photos 4k එක යට එකට ලස්සනට) -->
-        <div class="image-grid">
-            <div class="image-card">
-                <a href="https://kashiwellness.lk/prices-page/">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Day Treatments">
-                </a>
+        <!-- Our Place Section -->
+        <section id="our-place" class="our-place-section">
+            <h2 class="section-title">Our Place</h2>
+            <p class="section-subtitle">Step into our calm, natural sanctuary in Habarana crafted for peace, warmth, and authentic Ayurvedic healing.</p>
+            <div class="divider"></div>
+
+            <div class="place-gallery">
+                <div class="place-card">
+                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 1">
+                    <div class="place-caption">
+                        <span>Tranquil Sanctuary</span>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 2">
+                    <div class="place-caption">
+                        <span>Peaceful Surroundings</span>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/ChatGPT-Image-Jun-15-2026-06_11_14-PM-1_fit%3D1024%252C1024%26ssl%3D1.png" alt="Araliyā Sanctuary Space 3">
+                    <div class="place-caption">
+                        <span>Warm Hospitality</span>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-16-1_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 4">
+                    <div class="place-caption">
+                        <span>Natural Harmony</span>
+                    </div>
+                </div>
             </div>
-            <div class="image-card">
-                <a href="https://kashiwellness.lk/prices-page/">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png" alt="Ayurvedic Packages">
-                </a>
-            </div>
-            <div class="image-card">
-                <a href="https://kashiwellness.lk/prices-page/">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/ChatGPT-Image-Jun-15-2026-06_11_14-PM-1_fit%3D1024%252C1024%26ssl%3D1.png" alt="Ayurveda Doctor Consultation">
-                </a>
-            </div>
-            <div class="image-card">
-                <a href="https://doctorharshana.com/book">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-16-1_fit%3D1000%252C1000%26ssl%3D1.png" alt="Introductory Courses">
-                </a>
-            </div>
-        </div>
+        </section>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -372,19 +453,20 @@
     </a>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contacts">
         <div class="footer-content">
             <div>
                 <h3>Araliyā Ayurveda & Wellness</h3>
-                <p>No 73, Cinomen lodge, Habarana, Sri Lanka</p>
+                <p>No 73, Cinnamon Lodge, Habarana, Sri Lanka</p>
                 <p>Phone: <a href="https://wa.me/94762520630">+94 76 252 0630</a></p>
                 <p>Email: <a href="mailto:araliyaayurvedicspa@gmail.com">araliyaayurvedicspa@gmail.com</a></p>
             </div>
             <div>
                 <h3>Quick Links</h3>
-                <p><a href="https://kashiwellness.lk/gift-vouchers/">Gift Vouchers</a></p>
-                <p><a href="https://kashiwellness.lk/prices-page/">Menu</a></p>
-                <p><a href="https://kashiwellness.lk/book-appointment/">Book an Appointment</a></p>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="menu.html">Menu</a></p>
+                <p><a href="offers.html">Offers</a></p>
+                <p><a href="https://wa.me/94762520630" target="_blank">Book an Appointment</a></p>
             </div>
         </div>
         <div class="footer-bottom">
