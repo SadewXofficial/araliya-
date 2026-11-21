@@ -30,6 +30,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Lato', sans-serif;
             color: var(--text-dark);
@@ -180,18 +184,7 @@
             }
         }
 
-        /* Our Place Section & Animations */
-        @keyframes placeFadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Our Place Section & Scroll Animations */
         .our-place-section {
             margin-top: 20px;
             margin-bottom: 40px;
@@ -211,15 +204,27 @@
             overflow: hidden;
             box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
             border: 1px solid rgba(197, 168, 128, 0.25);
-            animation: placeFadeUp 0.8s ease-out forwards;
-            opacity: 0;
             aspect-ratio: 4 / 3;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease-out, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
         }
 
-        .place-card:nth-child(1) { animation-delay: 0.15s; }
-        .place-card:nth-child(2) { animation-delay: 0.3s; }
-        .place-card:nth-child(3) { animation-delay: 0.45s; }
-        .place-card:nth-child(4) { animation-delay: 0.6s; }
+        .place-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .place-card.is-visible:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+        }
+
+        .place-card:nth-child(2).is-visible { transition-delay: 0.1s; }
+        .place-card:nth-child(3).is-visible { transition-delay: 0.15s; }
+        .place-card:nth-child(4).is-visible { transition-delay: 0.2s; }
+        .place-card:nth-child(5).is-visible { transition-delay: 0.25s; }
+        .place-card:nth-child(6).is-visible { transition-delay: 0.3s; }
 
         .place-card img {
             width: 100%;
@@ -443,6 +448,20 @@
                         <span>Natural Harmony</span>
                     </div>
                 </div>
+
+                <div class="place-card">
+                    <img src="place5.jpg" alt="Araliyā Sanctuary Space 5">
+                    <div class="place-caption">
+                        <span>Serene Atmosphere</span>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="place6.jpg" alt="Araliyā Sanctuary Space 6">
+                    <div class="place-caption">
+                        <span>Calming Retreat</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -474,6 +493,34 @@
             <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
         </div>
     </footer>
+
+    <!-- Scroll Reveal Script for Our Place Cards -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".place-card");
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    (entries, obs) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.15,
+                        rootMargin: "0px 0px -30px 0px"
+                    }
+                );
+
+                cards.forEach((card) => observer.observe(card));
+            } else {
+                cards.forEach((card) => card.classList.add("is-visible"));
+            }
+        });
+    </script>
 
 </body>
 </html>
