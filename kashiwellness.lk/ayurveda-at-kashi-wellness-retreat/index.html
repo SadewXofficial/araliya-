@@ -142,30 +142,21 @@
                  /* TripAdvisor Travelers' Choice Badge */
 .tripadvisor-badge-container {
     text-align: center;
-    margin: 25px auto 40px auto;
-    padding: 0 15px;
+    margin: 25px auto 35px auto;
 }
 
 .tripadvisor-badge-container a {
     display: inline-block;
-    background-color: var(--white);
-    padding: 18px 28px;
-    border-radius: 14px;
-    border: 1px solid #e5dfd5;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.25s ease;
 }
 
 .tripadvisor-badge-container a:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-    border-color: var(--accent-color);
+    transform: scale(1.04);
 }
 
 .tripadvisor-badge {
-    width: 145px;
-    max-width: 100%;
+    width: 90px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -173,20 +164,10 @@
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
-    .tripadvisor-badge-container {
-        margin: 20px auto 35px auto;
-    }
-
-    .tripadvisor-badge-container a {
-        padding: 14px 20px;
-        border-radius: 12px;
-    }
-
     .tripadvisor-badge {
-        width: 120px;
+        width: 80px;
     }
 }
-
 
         /* Image Grid (Photos 4k) */
         .image-grid {
