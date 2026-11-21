@@ -187,7 +187,7 @@
         /* Our Place Section & Scroll Animations */
         .our-place-section {
             margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .place-gallery {
@@ -260,6 +260,71 @@
             letter-spacing: 0.5px;
             color: #f4e6d0;
             display: block;
+        }
+
+        /* Boat Safari Highlight Card on Home Page */
+        .safari-highlight-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #244738 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 26px rgba(26, 51, 40, 0.15);
+            border: 1px solid rgba(197, 168, 128, 0.45);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 14px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+        }
+
+        .safari-highlight-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .safari-highlight-tag {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .safari-highlight-card h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .safari-highlight-card p {
+            max-width: 680px;
+            color: #ece5da;
+            font-size: 15px;
+        }
+
+        .safari-explore-btn {
+            margin-top: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .safari-explore-btn:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
         }
 
         /* WhatsApp Floating Button */
@@ -367,6 +432,9 @@
             .section-title {
                 font-size: 30px;
             }
+            .safari-highlight-card {
+                padding: 26px 20px;
+            }
         }
     </style>
 </head>
@@ -386,6 +454,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
                         <li><a href="offers.html">Offers</a></li>
+                        <li><a href="safari.html">Safari</a></li>
                         <li><a href="#our-place">Our Place</a></li>
                         <li><a href="#contacts">Contacts</a></li>
                     </ul>
@@ -464,6 +533,17 @@
                 </div>
             </div>
         </section>
+
+        <!-- Boat Safari & Surroundings Highlight Card -->
+        <section class="safari-highlight-card reveal-on-scroll">
+            <span class="safari-highlight-tag">Lake Front • Large Rock • Boat Safari</span>
+            <h2>Scenic Boat Safari & Natural Surroundings</h2>
+            <p>With a serene lake right in front of our retreat, a towering rock formation behind us, and boat safari experiences nearby, visitors can enjoy peaceful nature and water adventures alongside their wellness stay.</p>
+            <a href="safari.html" class="safari-explore-btn">
+                <span>Explore Boat Safari</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -485,7 +565,7 @@
                 <p><a href="index.html">Home</a></p>
                 <p><a href="menu.html">Menu</a></p>
                 <p><a href="offers.html">Offers</a></p>
-                <p><a href="https://wa.me/94762520630" target="_blank">Book an Appointment</a></p>
+                <p><a href="safari.html">Boat Safari</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -494,10 +574,10 @@
         </div>
     </footer>
 
-    <!-- Scroll Reveal Script for Our Place Cards -->
+    <!-- Scroll Reveal Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const cards = document.querySelectorAll(".place-card");
+            const revealItems = document.querySelectorAll(".place-card, .reveal-on-scroll");
 
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver(
@@ -515,9 +595,9 @@
                     }
                 );
 
-                cards.forEach((card) => observer.observe(card));
+                revealItems.forEach((item) => observer.observe(item));
             } else {
-                cards.forEach((card) => card.classList.add("is-visible"));
+                revealItems.forEach((item) => item.classList.add("is-visible"));
             }
         });
     </script>
