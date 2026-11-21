@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boat Safari & Surroundings - Araliyā Wellness Retreat</title>
+    <meta name="description" content="Explore scenic boat safaris, serene lake views, and natural rock formations near Araliyā Ayurveda & Wellness Retreat in Habarana.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1a3328;
+            --accent-color: #c5a880;
+            --text-dark: #333333;
+            --bg-light: #f9f8f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo img {
+            max-height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .book-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .safari-hero {
+            background: linear-gradient(rgba(26, 51, 40, 0.85), rgba(26, 51, 40, 0.85));
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 45px;
+        }
+
+        .safari-hero span {
+            font-family: 'Marcellus', serif;
+            color: var(--accent-color);
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .safari-hero h1 {
+            font-family: 'Marcellus', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .safari-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: #e6dfd5;
+        }
+
+        .divider {
+            height: 3px;
+            width: 65px;
+            background-color: var(--accent-color);
+            margin: 22px auto 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1020px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Highlights Box */
+        .highlights-box {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            margin-bottom: 45px;
+            border: 1px solid rgba(197, 168, 128, 0.25);
+        }
+
+        .highlights-box h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .highlights-box p {
+            color: #555;
+            margin-bottom: 22px;
+            text-align: center;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: var(--bg-light);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #ece6dc;
+        }
+
+        .feature-item i {
+            font-size: 26px;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* Safari Photo Gallery & Scroll Animations */
+        .gallery-heading {
+            font-family: 'Marcellus', serif;
+            font-size: 32px;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .gallery-sub {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .safari-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .safari-card {
+            position: relative;
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+            aspect-ratio: 4 / 3;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .safari-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .safari-card:nth-child(2).is-visible { transition-delay: 0.1s; }
+        .safari-card:nth-child(3).is-visible { transition-delay: 0.2s; }
+        .safari-card:nth-child(4).is-visible { transition-delay: 0.3s; }
+
+        .safari-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .safari-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .safari-caption {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(to top, rgba(26, 51, 40, 0.9), rgba(26, 51, 40, 0));
+            color: var(--white);
+        }
+
+        .safari-caption span {
+            font-family: 'Marcellus', serif;
+            font-size: 16px;
+            color: #f4e6d0;
+        }
+
+        /* CTA Banner */
+        .cta-box {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 35px 25px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .cta-box p {
+            color: #e6dfd5;
+            margin-bottom: 22px;
+            font-size: 15px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 12px 26px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer p, footer li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style: none;
+            color: #ddd;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-left {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .safari-gallery {
+                grid-template-columns: 1fr;
+            }
+            .safari-hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="IMG_0549.jpeg" alt="Araliyā Wellness Retreat">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="safari.html" class="active">Safari</a></li>
+                        <li><a href="index.html#our-place">Our Place</a></li>
+                        <li><a href="index.html#contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <a href="https://wa.me/94762520630" class="book-btn" target="_blank">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="safari-hero">
+        <span>Araliyā Surroundings</span>
+        <h1>Boat Safari & Natural Views</h1>
+        <p>Set right in front of a peaceful lake with a towering natural rock behind us, guests can enjoy calm water views and guided boat safaris nearby.</p>
+        <div class="divider"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="highlights-box">
+            <h2>Nature Around Araliyā</h2>
+            <p>Our location blends Ayurvedic calm with nature's quiet beauty. Wake up to serene lake views at the front, admire the grand rock rising behind the retreat, and take a memorable boat safari right next door.</p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-water"></i>
+                    <h3>Scenic Lake Front</h3>
+                    <p>Calm, refreshing water views right in front of the property for peaceful relaxation.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Grand Rock Backdrop</h3>
+                    <p>A striking large rock formation behind the retreat adding natural character and charm.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-ship"></i>
+                    <h3>Boat Safari Experience</h3>
+                    <p>Easy access to relaxing boat safaris for visitors looking to explore the water.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="gallery-heading">Safari & Scenery Moments</h2>
+        <p class="gallery-sub">Replace these sample images with your real lake, rock, and boat safari photos.</p>
+
+        <div class="safari-gallery">
+            <div class="safari-card">
+                <img src="safari1.jpg" alt="Boat Safari View 1">
+                <div class="safari-caption">
+                    <span>Morning Boat Safari</span>
+                </div>
+            </div>
+            <div class="safari-card">
+                <img src="safari2.jpg" alt="Lake View 2">
+                <div class="safari-caption">
+                    <span>Lake in Front of Araliyā</span>
+                </div>
+            </div>
+            <div class="safari-card">
+                <img src="safari3.jpg" alt="Rock View 3">
+                <div class="safari-caption">
+                    <span>Large Rock Behind the Retreat</span>
+                </div>
+            </div>
+            <div class="safari-card">
+                <img src="safari4.jpg" alt="Boat Safari Ride 4">
+                <div class="safari-caption">
+                    <span>Peaceful Water Journey</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Planning a Boat Safari or Wellness Visit?</h3>
+            <p>Message us on WhatsApp to arrange a boat safari or combine it with your Ayurvedic treatment.</p>
+            <a href="https://wa.me/94762520630?text=Hello%20Araliy%C4%81%2C%20I%20would%20like%20to%20know%20more%20about%20the%20boat%20safari%20and%20surroundings." class="cta-btn" target="_blank">Book Boat Safari on WhatsApp</a>
+        </div>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/94762520630" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Araliyā Ayurveda & Wellness</h3>
+                <p>No 73, Cinnamon Lodge, Habarana, Sri Lanka</p>
+                <p>Phone: <a href="https://wa.me/94762520630">+94 76 252 0630</a></p>
+                <p>Email: <a href="mailto:araliyaayurvedicspa@gmail.com">araliyaayurvedicspa@gmail.com</a></p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="menu.html">Menu</a></p>
+                <p><a href="offers.html">Offers</a></p>
+                <p><a href="safari.html">Boat Safari</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Araliyā Ayurvedic & Wellness Retreat is a Sri Lanka Tourism Development Authority approved Ayurveda Wellness Retreat</p>
+            <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".safari-card");
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                cards.forEach((card) => observer.observe(card));
+            } else {
+                cards.forEach((card) => card.classList.add("is-visible"));
+            }
+        });
+    </script>
+
+</body>
+</html>
