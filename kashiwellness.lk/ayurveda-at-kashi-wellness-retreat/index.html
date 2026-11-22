@@ -276,7 +276,7 @@
             text-align: center;
             gap: 14px;
             margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             opacity: 0;
             transform: translateY(24px);
             transition: opacity 0.75s ease-out, transform 0.75s ease-out;
@@ -325,6 +325,121 @@
         .safari-explore-btn:hover {
             background-color: var(--white);
             transform: translateY(-2px);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .review-form-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .review-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 180px;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .review-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .review-field input,
+        .review-field select,
+        .review-field textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #dcd5c9;
+            border-radius: 10px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .review-field textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        .review-submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.2s ease;
+        }
+
+        .review-submit-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .review-status-msg {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .review-item-card {
+            background: var(--white);
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #ece6dc;
+        }
+
+        .review-item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 15px;
+        }
+
+        .review-stars {
+            color: #d49b35;
+            font-size: 14px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .review-comment {
+            font-size: 14px;
+            color: #555;
         }
 
         /* WhatsApp Floating Button */
@@ -422,11 +537,14 @@
         }
 
         @media (max-width: 650px) {
-            .place-gallery {
+            .place-gallery,
+            .reviews-list,
+            .review-form-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 18px;
             }
-            .text-content {
+            .text-content,
+            .review-form-card {
                 padding: 25px 20px;
             }
             .section-title {
@@ -453,9 +571,10 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
-                        <li><a href="Offers.html">Offers</a></li>
+                        <li><a href="offers.html">Offers</a></li>
                         <li><a href="safari.html">Safari</a></li>
                         <li><a href="#our-place">Our Place</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>
@@ -544,6 +663,46 @@
                 <i class="fas fa-arrow-right"></i>
             </a>
         </section>
+
+        <!-- Guest Reviews Section (Above Contacts Footer) -->
+        <section id="reviews" class="reviews-section">
+            <h2 class="section-title">Guest Reviews</h2>
+            <p class="section-subtitle">Share your experience at Araliyā. Approved reviews appear below after verification.</p>
+            <div class="divider"></div>
+
+            <div class="review-form-card">
+                <form id="reviewForm">
+                    <div class="review-form-grid">
+                        <div class="review-field">
+                            <label for="reviewerName">Your Name</label>
+                            <input type="text" id="reviewerName" name="reviewerName" placeholder="e.g., Alex Morgan" required maxlength="80">
+                        </div>
+                        <div class="review-field">
+                            <label for="reviewerRating">Rating</label>
+                            <select id="reviewerRating" name="reviewerRating">
+                                <option value="5">★★★★★ (5)</option>
+                                <option value="4">★★★★☆ (4)</option>
+                                <option value="3">★★★☆☆ (3)</option>
+                                <option value="2">★★☆☆☆ (2)</option>
+                                <option value="1">★☆☆☆☆ (1)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="review-field" style="margin-bottom: 16px;">
+                        <label for="reviewerComment">Your Comment</label>
+                        <textarea id="reviewerComment" name="reviewerComment" placeholder="Tell us about your Ayurvedic treatment, surroundings, or boat safari..." required maxlength="600"></textarea>
+                    </div>
+
+                    <button type="submit" id="reviewSubmitBtn" class="review-submit-btn">Submit Review</button>
+                    <p id="reviewStatusMsg" class="review-status-msg"></p>
+                </form>
+            </div>
+
+            <div id="reviewsList" class="reviews-list">
+                <p style="color:#666; grid-column: 1 / -1; text-align:center;">Loading approved reviews...</p>
+            </div>
+        </section>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -551,7 +710,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
+    <!-- Footer (Contacts) -->
     <footer id="contacts">
         <div class="footer-content">
             <div>
@@ -599,6 +758,102 @@
             } else {
                 revealItems.forEach((item) => item.classList.add("is-visible"));
             }
+        });
+    </script>
+
+    <!-- Google Sheets Approved Reviews Script -->
+    <script>
+        const REVIEW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuoHdpQ7v9ELaDg6QHRnFcT1kn331wrqUepnqgQD0OfFhXL2bNQBSfkaizchVvLR0l/exec";
+
+        function escapeHtml(text) {
+            const div = document.createElement("div");
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function renderStars(count) {
+            const n = Math.max(1, Math.min(5, Number(count) || 5));
+            return "★".repeat(n) + "☆".repeat(5 - n);
+        }
+
+        async function loadApprovedReviews() {
+            const listEl = document.getElementById("reviewsList");
+            if (!REVIEW_WEB_APP_URL || REVIEW_WEB_APP_URL.includes("PASTE_YOUR_WEB_APP_URL_HERE")) {
+                listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">Add your Google Apps Script Web App URL to load approved reviews.</p>';
+                return;
+            }
+
+            try {
+                const res = await fetch(REVIEW_WEB_APP_URL);
+                const data = await res.json();
+                const reviews = data.reviews || [];
+
+                if (!reviews.length) {
+                    listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">No approved reviews yet. Be the first to share your experience!</p>';
+                    return;
+                }
+
+                listEl.innerHTML = reviews.map((r) => `
+                    <div class="review-item-card">
+                        <div class="review-item-top">
+                            <span class="review-author">${escapeHtml(r.name)}</span>
+                            <span class="review-stars">${renderStars(r.rating)}</span>
+                        </div>
+                        ${r.date ? `<div class="review-date">${escapeHtml(r.date)}</div>` : ""}
+                        <p class="review-comment">${escapeHtml(r.comment)}</p>
+                    </div>
+                `).join("");
+            } catch (err) {
+                listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">Unable to load reviews right now.</p>';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadApprovedReviews();
+
+            const form = document.getElementById("reviewForm");
+            const statusEl = document.getElementById("reviewStatusMsg");
+            const submitBtn = document.getElementById("reviewSubmitBtn");
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("reviewerName").value.trim();
+                const rating = document.getElementById("reviewerRating").value;
+                const comment = document.getElementById("reviewerComment").value.trim();
+
+                if (!name || !comment) return;
+
+                if (!REVIEW_WEB_APP_URL || REVIEW_WEB_APP_URL.includes("PASTE_YOUR_WEB_APP_URL_HERE")) {
+                    statusEl.style.color = "#b45309";
+                    statusEl.textContent = "Please set your Google Apps Script Web App URL first.";
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Submitting...";
+                statusEl.style.color = "#1a3328";
+                statusEl.textContent = "";
+
+                try {
+                    await fetch(REVIEW_WEB_APP_URL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify({ name, rating, comment })
+                    });
+
+                    form.reset();
+                    statusEl.style.color = "#15803d";
+                    statusEl.textContent = "Thank you! Your review has been sent for approval.";
+                } catch (err) {
+                    statusEl.style.color = "#b91c1c";
+                    statusEl.textContent = "Something went wrong. Please try again.";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Submit Review";
+                }
+            });
         });
     </script>
 
