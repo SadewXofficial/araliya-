@@ -336,10 +336,10 @@
         .review-form-card {
             background: var(--white);
             padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-            border: 1px solid rgba(197, 168, 128, 0.3);
-            margin-bottom: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(26, 51, 40, 0.05);
+            border: 1px solid #e6e2da;
+            margin-bottom: 28px;
         }
 
         .review-form-grid {
@@ -399,47 +399,142 @@
             font-weight: 600;
         }
 
-        .reviews-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        /* Horizontal Swipe Carousel Wrapper */
+        .reviews-carousel-wrapper {
+            position: relative;
         }
 
+        .reviews-carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            gap: 12px;
+        }
+
+        .reviews-swipe-hint {
+            font-size: 13px;
+            color: #6d7570;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .reviews-nav-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .review-nav-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid #d5ded8;
+            background-color: var(--white);
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(26, 51, 40, 0.06);
+            transition: all 0.2s ease;
+        }
+
+        .review-nav-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .reviews-list {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 4px 2px 14px 2px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(26, 51, 40, 0.28) transparent;
+        }
+
+        .reviews-list::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .reviews-list::-webkit-scrollbar-thumb {
+            background: rgba(26, 51, 40, 0.25);
+            border-radius: 999px;
+        }
+
+        .reviews-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Clean, Refined Review Card Style (Soft Sage/Ivory + Left Accent) */
         .review-item-card {
-            background: var(--white);
-            padding: 22px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border: 1px solid #ece6dc;
+            flex: 0 0 calc(50% - 9px);
+            min-width: 300px;
+            scroll-snap-align: start;
+            background: linear-gradient(180deg, #ffffff 0%, #f4f7f5 100%);
+            padding: 24px 24px 22px 26px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(26, 51, 40, 0.06);
+            border: 1px solid #e2eae5;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .review-item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(26, 51, 40, 0.1);
         }
 
         .review-item-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 6px;
         }
 
         .review-author {
+            font-family: 'Marcellus', serif;
             font-weight: 700;
             color: var(--primary-color);
-            font-size: 15px;
+            font-size: 16px;
+            letter-spacing: 0.2px;
         }
 
         .review-stars {
             color: #d49b35;
             font-size: 14px;
+            white-space: nowrap;
         }
 
         .review-date {
             font-size: 12px;
-            color: #888;
-            margin-bottom: 10px;
+            color: #7c857f;
+            margin-bottom: 12px;
         }
 
         .review-comment {
             font-size: 14px;
-            color: #555;
+            color: #444d47;
+            line-height: 1.65;
+        }
+
+        .reviews-empty-state {
+            width: 100%;
+            background: var(--white);
+            border: 1px dashed #d6dfd9;
+            border-radius: 14px;
+            padding: 26px;
+            text-align: center;
+            color: #666;
         }
 
         /* WhatsApp Floating Button */
@@ -538,10 +633,13 @@
 
         @media (max-width: 650px) {
             .place-gallery,
-            .reviews-list,
             .review-form-grid {
                 grid-template-columns: 1fr;
                 gap: 18px;
+            }
+            .review-item-card {
+                flex: 0 0 86%;
+                min-width: 265px;
             }
             .text-content,
             .review-form-card {
@@ -699,8 +797,25 @@
                 </form>
             </div>
 
-            <div id="reviewsList" class="reviews-list">
-                <p style="color:#666; grid-column: 1 / -1; text-align:center;">Loading approved reviews...</p>
+            <div class="reviews-carousel-wrapper">
+                <div class="reviews-carousel-header">
+                    <span class="reviews-swipe-hint">
+                        <i class="fas fa-arrows-left-right"></i>
+                        <span>Swipe side-by-side to read more reviews</span>
+                    </span>
+                    <div class="reviews-nav-controls">
+                        <button type="button" id="prevReviewBtn" class="review-nav-btn" aria-label="Previous review">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button type="button" id="nextReviewBtn" class="review-nav-btn" aria-label="Next review">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="reviewsList" class="reviews-list">
+                    <div class="reviews-empty-state">Loading approved reviews...</div>
+                </div>
             </div>
         </section>
     </main>
@@ -779,7 +894,7 @@
         async function loadApprovedReviews() {
             const listEl = document.getElementById("reviewsList");
             if (!REVIEW_WEB_APP_URL || REVIEW_WEB_APP_URL.includes("PASTE_YOUR_WEB_APP_URL_HERE")) {
-                listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">Add your Google Apps Script Web App URL to load approved reviews.</p>';
+                listEl.innerHTML = '<div class="reviews-empty-state">Add your Google Apps Script Web App URL to load approved reviews.</div>';
                 return;
             }
 
@@ -789,27 +904,51 @@
                 const reviews = data.reviews || [];
 
                 if (!reviews.length) {
-                    listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">No approved reviews yet. Be the first to share your experience!</p>';
+                    listEl.innerHTML = '<div class="reviews-empty-state">No approved reviews yet. Be the first to share your experience!</div>';
                     return;
                 }
 
                 listEl.innerHTML = reviews.map((r) => `
-                    <div class="review-item-card">
-                        <div class="review-item-top">
-                            <span class="review-author">${escapeHtml(r.name)}</span>
-                            <span class="review-stars">${renderStars(r.rating)}</span>
+                    <article class="review-item-card">
+                        <div>
+                            <div class="review-item-top">
+                                <span class="review-author">${escapeHtml(r.name)}</span>
+                                <span class="review-stars">${renderStars(r.rating)}</span>
+                            </div>
+                            ${r.date ? `<div class="review-date">${escapeHtml(r.date)}</div>` : ""}
                         </div>
-                        ${r.date ? `<div class="review-date">${escapeHtml(r.date)}</div>` : ""}
                         <p class="review-comment">${escapeHtml(r.comment)}</p>
-                    </div>
+                    </article>
                 `).join("");
             } catch (err) {
-                listEl.innerHTML = '<p style="color:#666; grid-column: 1 / -1; text-align:center;">Unable to load reviews right now.</p>';
+                listEl.innerHTML = '<div class="reviews-empty-state">Unable to load reviews right now.</div>';
             }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             loadApprovedReviews();
+
+            const listEl = document.getElementById("reviewsList");
+            const prevBtn = document.getElementById("prevReviewBtn");
+            const nextBtn = document.getElementById("nextReviewBtn");
+
+            function getSlideStep() {
+                const firstCard = listEl.querySelector(".review-item-card");
+                if (!firstCard) return 320;
+                return firstCard.getBoundingClientRect().width + 18;
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener("click", function () {
+                    listEl.scrollBy({ left: -getSlideStep(), behavior: "smooth" });
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", function () {
+                    listEl.scrollBy({ left: getSlideStep(), behavior: "smooth" });
+                });
+            }
 
             const form = document.getElementById("reviewForm");
             const statusEl = document.getElementById("reviewStatusMsg");
