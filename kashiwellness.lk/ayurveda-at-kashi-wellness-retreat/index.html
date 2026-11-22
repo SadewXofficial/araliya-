@@ -184,82 +184,133 @@
             }
         }
 
-        /* Our Place Section & Scroll Animations */
+        /* Our Place Single-Card Auto Slideshow */
         .our-place-section {
             margin-top: 20px;
             margin-bottom: 45px;
         }
 
-        .place-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .place-card {
+        .place-slideshow-card {
             position: relative;
+            max-width: 760px;
+            margin: 25px auto 0 auto;
             background: var(--white);
-            border-radius: 14px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            aspect-ratio: 4 / 3;
+            box-shadow: 0 12px 30px rgba(26, 51, 40, 0.1);
+            border: 1px solid rgba(197, 168, 128, 0.35);
+            aspect-ratio: 16 / 10;
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.75s ease-out, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+            transform: translateY(24px);
+            transition: opacity 0.75s ease-out, transform 0.75s ease-out, box-shadow 0.3s ease;
         }
 
-        .place-card.is-visible {
+        .place-slideshow-card.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .place-card.is-visible:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
-        }
-
-        .place-card:nth-child(2).is-visible { transition-delay: 0.1s; }
-        .place-card:nth-child(3).is-visible { transition-delay: 0.15s; }
-        .place-card:nth-child(4).is-visible { transition-delay: 0.2s; }
-        .place-card:nth-child(5).is-visible { transition-delay: 0.25s; }
-        .place-card:nth-child(6).is-visible { transition-delay: 0.3s; }
-
-        .place-card img {
+        .place-slide-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 1;
+            transition: opacity 0.55s ease, transform 0.8s ease;
         }
 
-        .place-card:hover img {
-            transform: scale(1.08);
+        .place-slide-img.is-fading {
+            opacity: 0.15;
+            transform: scale(1.02);
         }
 
-        .place-caption {
+        .place-slide-overlay {
             position: absolute;
             inset: auto 0 0 0;
-            padding: 18px 20px;
-            background: linear-gradient(to top, rgba(26, 51, 40, 0.9), rgba(26, 51, 40, 0));
+            padding: 36px 24px 20px 24px;
+            background: linear-gradient(to top, rgba(20, 41, 32, 0.92) 0%, rgba(20, 41, 32, 0.45) 60%, rgba(20, 41, 32, 0) 100%);
             color: var(--white);
-            transform: translateY(8px);
-            opacity: 0.92;
-            transition: transform 0.35s ease, opacity 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .place-card:hover .place-caption {
-            transform: translateY(0);
-            opacity: 1;
+        .place-slide-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
         }
 
-        .place-caption span {
+        .place-slide-caption {
             font-family: 'Marcellus', serif;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            color: #f4e6d0;
-            display: block;
+            font-size: 19px;
+            letter-spacing: 0.4px;
+            color: #f6ead6;
+        }
+
+        .place-slide-counter {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .place-slide-controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .place-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .place-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .place-dot.active {
+            width: 24px;
+            background: var(--accent-color);
+        }
+
+        .place-arrows {
+            display: flex;
+            gap: 8px;
+        }
+
+        .place-arrow-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(26, 51, 40, 0.65);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .place-arrow-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
         }
 
         /* Boat Safari Highlight Card on Home Page */
@@ -632,7 +683,13 @@
         }
 
         @media (max-width: 650px) {
-            .place-gallery,
+            .place-slideshow-card {
+                aspect-ratio: 4 / 3;
+                border-radius: 14px;
+            }
+            .place-slide-caption {
+                font-size: 16px;
+            }
             .review-form-grid {
                 grid-template-columns: 1fr;
                 gap: 18px;
@@ -669,7 +726,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="menu.html">Menu</a></li>
-                        <li><a href="Offers.html">Offers</a></li>
+                        <li><a href="offers.html">Offers</a></li>
                         <li><a href="safari.html">Safari</a></li>
                         <li><a href="#our-place">Our Place</a></li>
                         <li><a href="#reviews">Reviews</a></li>
@@ -700,52 +757,29 @@
             </a>
         </div>
 
-        <!-- Our Place Section -->
+        <!-- Our Place Single-Card Auto Slideshow -->
         <section id="our-place" class="our-place-section">
             <h2 class="section-title">Our Place</h2>
             <p class="section-subtitle">Step into our calm, natural sanctuary in Habarana crafted for peace, warmth, and authentic Ayurvedic healing.</p>
             <div class="divider"></div>
 
-            <div class="place-gallery">
-                <div class="place-card">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 1">
-                    <div class="place-caption">
-                        <span>Tranquil Sanctuary</span>
+            <div id="placeSlideshowCard" class="place-slideshow-card reveal-on-scroll">
+                <img id="placeSlideImg" class="place-slide-img" src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png" alt="Tranquil Sanctuary">
+                <div class="place-slide-overlay">
+                    <div class="place-slide-top">
+                        <span id="placeSlideCaption" class="place-slide-caption">Tranquil Sanctuary</span>
+                        <span id="placeSlideCounter" class="place-slide-counter">1 / 6</span>
                     </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 2">
-                    <div class="place-caption">
-                        <span>Peaceful Surroundings</span>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/ChatGPT-Image-Jun-15-2026-06_11_14-PM-1_fit%3D1024%252C1024%26ssl%3D1.png" alt="Araliyā Sanctuary Space 3">
-                    <div class="place-caption">
-                        <span>Warm Hospitality</span>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-16-1_fit%3D1000%252C1000%26ssl%3D1.png" alt="Araliyā Sanctuary Space 4">
-                    <div class="place-caption">
-                        <span>Natural Harmony</span>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="place5.jpg" alt="Araliyā Sanctuary Space 5">
-                    <div class="place-caption">
-                        <span>Serene Atmosphere</span>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="place6.jpg" alt="Araliyā Sanctuary Space 6">
-                    <div class="place-caption">
-                        <span>Calming Retreat</span>
+                    <div class="place-slide-controls-row">
+                        <div id="placeDots" class="place-dots" aria-label="Slide indicators"></div>
+                        <div class="place-arrows">
+                            <button type="button" id="placePrevBtn" class="place-arrow-btn" aria-label="Previous photo">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" id="placeNextBtn" class="place-arrow-btn" aria-label="Next photo">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -848,10 +882,10 @@
         </div>
     </footer>
 
-    <!-- Scroll Reveal Script -->
+    <!-- Scroll Reveal & Our Place Single-Card Slideshow Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const revealItems = document.querySelectorAll(".place-card, .reveal-on-scroll");
+            const revealItems = document.querySelectorAll(".reveal-on-scroll");
 
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver(
@@ -872,6 +906,124 @@
                 revealItems.forEach((item) => observer.observe(item));
             } else {
                 revealItems.forEach((item) => item.classList.add("is-visible"));
+            }
+
+            const placeSlides = [
+                {
+                    src: "../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-14_fit%3D1000%252C1000%26ssl%3D1.png",
+                    caption: "Tranquil Sanctuary"
+                },
+                {
+                    src: "../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-15_fit%3D1000%252C1000%26ssl%3D1.png",
+                    caption: "Peaceful Surroundings"
+                },
+                {
+                    src: "../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/ChatGPT-Image-Jun-15-2026-06_11_14-PM-1_fit%3D1024%252C1024%26ssl%3D1.png",
+                    caption: "Warm Hospitality"
+                },
+                {
+                    src: "../../i0.wp.com/kashiwellness.lk/wp-content/uploads/2026/06/Untitled-design-16-1_fit%3D1000%252C1000%26ssl%3D1.png",
+                    caption: "Natural Harmony"
+                },
+                {
+                    src: "place5.jpg",
+                    caption: "Serene Atmosphere"
+                },
+                {
+                    src: "place6.jpg",
+                    caption: "Calming Retreat"
+                }
+            ];
+
+            const cardEl = document.getElementById("placeSlideshowCard");
+            const imgEl = document.getElementById("placeSlideImg");
+            const captionEl = document.getElementById("placeSlideCaption");
+            const counterEl = document.getElementById("placeSlideCounter");
+            const dotsEl = document.getElementById("placeDots");
+            const prevBtn = document.getElementById("placePrevBtn");
+            const nextBtn = document.getElementById("placeNextBtn");
+
+            let currentIndex = 0;
+            let autoTimer = null;
+            let fadeTimeout = null;
+            const AUTO_DELAY_MS = 4500;
+
+            if (cardEl && imgEl && placeSlides.length > 0) {
+                dotsEl.innerHTML = placeSlides.map((_, idx) =>
+                    `<button type="button" class="place-dot ${idx === 0 ? "active" : ""}" data-index="${idx}" aria-label="Go to photo ${idx + 1}"></button>`
+                ).join("");
+
+                const dotButtons = Array.from(dotsEl.querySelectorAll(".place-dot"));
+
+                function updateDots(idx) {
+                    dotButtons.forEach((dot, i) => {
+                        dot.classList.toggle("active", i === idx);
+                    });
+                    counterEl.textContent = `${idx + 1} / ${placeSlides.length}`;
+                }
+
+                function showSlide(nextIdx) {
+                    const normalizedIdx = (nextIdx + placeSlides.length) % placeSlides.length;
+                    if (normalizedIdx === currentIndex && !imgEl.classList.contains("is-fading")) return;
+
+                    clearTimeout(fadeTimeout);
+                    imgEl.classList.add("is-fading");
+
+                    fadeTimeout = setTimeout(() => {
+                        currentIndex = normalizedIdx;
+                        const slide = placeSlides[currentIndex];
+                        imgEl.src = slide.src;
+                        imgEl.alt = slide.caption;
+                        captionEl.textContent = slide.caption;
+                        updateDots(currentIndex);
+                        imgEl.classList.remove("is-fading");
+                    }, 240);
+                }
+
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    autoTimer = setInterval(() => {
+                        showSlide(currentIndex + 1);
+                    }, AUTO_DELAY_MS);
+                }
+
+                function stopAutoPlay() {
+                    if (autoTimer) {
+                        clearInterval(autoTimer);
+                        autoTimer = null;
+                    }
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener("click", () => {
+                        showSlide(currentIndex - 1);
+                        startAutoPlay();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener("click", () => {
+                        showSlide(currentIndex + 1);
+                        startAutoPlay();
+                    });
+                }
+
+                dotButtons.forEach((dot) => {
+                    dot.addEventListener("click", () => {
+                        const idx = Number(dot.getAttribute("data-index"));
+                        showSlide(idx);
+                        startAutoPlay();
+                    });
+                });
+
+                cardEl.addEventListener("mouseenter", stopAutoPlay);
+                cardEl.addEventListener("mouseleave", startAutoPlay);
+                cardEl.addEventListener("touchstart", stopAutoPlay, { passive: true });
+                cardEl.addEventListener("touchend", () => {
+                    setTimeout(startAutoPlay, 2000);
+                }, { passive: true });
+
+                startAutoPlay();
             }
         });
     </script>
