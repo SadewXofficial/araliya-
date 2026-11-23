@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Booking - Araliyā Ayurveda & Wellness</title>
+    <meta name="description" content="Book authentic Ayurvedic treatments and boat safari at Araliyā Ayurveda & Wellness in Habarana with instant advance or full payment calculation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1a3328;
+            --accent-color: #c5a880;
+            --text-dark: #333333;
+            --bg-light: #f9f8f6;
+            --white: #ffffff;
+            --border-soft: #e3ddd2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo img {
+            max-height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .book-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 920px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Marcellus', serif;
+            font-size: 36px;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            max-width: 660px;
+            margin: 0 auto 20px auto;
+        }
+
+        .divider {
+            height: 3px;
+            width: 60px;
+            background-color: var(--accent-color);
+            margin: 0 auto 28px auto;
+        }
+
+        /* Top Currency Switcher Pill */
+        .currency-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .currency-toggle {
+            display: inline-flex;
+            background: var(--white);
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: 0 4px 14px rgba(26, 51, 40, 0.06);
+        }
+
+        .currency-btn {
+            border: none;
+            background: transparent;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+
+        .currency-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .rate-note {
+            font-size: 12px;
+            color: #6e7772;
+        }
+
+        /* Cards */
+        .booking-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(26, 51, 40, 0.05);
+            border: 1px solid var(--border-soft);
+            margin-bottom: 24px;
+        }
+
+        .card-heading {
+            font-family: 'Marcellus', serif;
+            font-size: 21px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-heading i {
+            color: var(--accent-color);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .service-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 1px solid #dfd8cb;
+            border-radius: 12px;
+            background-color: var(--bg-light);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .service-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .service-option.selected {
+            background-color: #eef5f1;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 1px var(--primary-color);
+        }
+
+        .service-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-left input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .service-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        .service-tag {
+            display: block;
+            font-size: 11px;
+            color: #777;
+        }
+
+        .service-price {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        /* Guest Details Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            padding: 11px 14px;
+            border: 1px solid #d6cfc2;
+            border-radius: 10px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .form-field textarea {
+            min-height: 75px;
+            resize: vertical;
+        }
+
+        /* Payment Mode Buttons (Advance 35% vs Full 100%) */
+        .pay-mode-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .pay-mode-btn {
+            border: 2px solid #d6cfc2;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pay-mode-btn.active {
+            background: #eef5f1;
+            border-color: var(--primary-color);
+            box-shadow: 0 6px 16px rgba(26, 51, 40, 0.08);
+        }
+
+        .pay-mode-title {
+            display: block;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .pay-mode-sub {
+            display: block;
+            font-size: 12px;
+            color: #5f6863;
+        }
+
+        /* Calculation Box */
+        .calc-box {
+            background: #f4f7f5;
+            border: 1px solid #d9e4dd;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 0;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .calc-row.highlight {
+            border-top: 1px dashed #c4d2c9;
+            margin-top: 8px;
+            padding-top: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .balance-note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #7c5821;
+            background: #fdf6ea;
+            border: 1px solid #f0dfb9;
+            padding: 10px 14px;
+            border-radius: 10px;
+        }
+
+        /* Bank Details Box */
+        .bank-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #244738 100%);
+            color: var(--white);
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(197, 168, 128, 0.45);
+        }
+
+        .bank-box h4 {
+            font-family: 'Marcellus', serif;
+            font-size: 18px;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+            font-size: 13.5px;
+        }
+
+        .bank-grid strong {
+            color: #f3e5cb;
+        }
+
+        /* Slip Upload */
+        .slip-box {
+            border: 2px dashed #c7beae;
+            border-radius: 14px;
+            padding: 18px;
+            background: var(--bg-light);
+            margin-bottom: 20px;
+        }
+
+        .slip-preview {
+            margin-top: 12px;
+            max-width: 240px;
+            max-height: 180px;
+            border-radius: 10px;
+            display: none;
+            border: 1px solid #ddd;
+        }
+
+        /* Submit & WhatsApp Action */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .status-msg {
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .wa-confirm-box {
+            margin-top: 14px;
+            display: none;
+        }
+
+        .wa-confirm-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* WhatsApp Pill Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            background-color: #25d366;
+            color: #ffffff;
+            padding: 9px 15px 9px 11px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-icon-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.18);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .whatsapp-text-group {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .whatsapp-subtext {
+            font-size: 10px;
+            opacity: 0.92;
+        }
+
+        .whatsapp-maintext {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 45px 20px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        footer h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 16px;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 6px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        @media (max-width: 720px) {
+            .services-grid,
+            .form-grid,
+            .pay-mode-buttons,
+            .bank-grid {
+                grid-template-columns: 1fr;
+            }
+            .booking-card {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="IMG_0549.jpeg" alt="Araliyā Wellness Retreat">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="Offers.html">Offers</a></li>
+                        <li><a href="safari.html">Safari</a></li>
+                        <li><a href="index.html#our-place">Our Place</a></li>
+                        <li><a href="index.html#reviews">Reviews</a></li>
+                        <li><a href="index.html#contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <a href="booking.html" class="book-btn">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="section-title">Online Booking</h1>
+        <p class="section-subtitle">Select your Ayurvedic treatments or safari experience, choose 35% Advance or Full Payment, transfer to our bank account, and upload your payment slip.</p>
+        <div class="divider"></div>
+
+        <!-- Top Currency Toggle (USD / LKR) -->
+        <div class="currency-bar">
+            <div class="currency-toggle" role="group" aria-label="Select Currency">
+                <button type="button" id="btnUSD" class="currency-btn active">USD ($)</button>
+                <button type="button" id="btnLKR" class="currency-btn">LKR (Rs.)</button>
+            </div>
+            <span id="rateNote" class="rate-note">Indicative rate: 1 USD = LKR 332 (editable in code)</span>
+        </div>
+
+        <form id="bookingForm">
+            <!-- Step 1: Select Treatments & Safari -->
+            <section class="booking-card">
+                <h2 class="card-heading"><i class="fas fa-spa"></i> 1. Select Treatments & Experiences</h2>
+                <div id="servicesGrid" class="services-grid"></div>
+            </section>
+
+            <!-- Step 2: Guest Details -->
+            <section class="booking-card">
+                <h2 class="card-heading"><i class="fas fa-user"></i> 2. Guest Details</h2>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="guestName">Full Name *</label>
+                        <input type="text" id="guestName" name="guestName" placeholder="e.g., Sophia Laurent" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="guestEmail">Email Address *</label>
+                        <input type="email" id="guestEmail" name="guestEmail" placeholder="e.g., sophia@example.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="guestPhone">Phone / WhatsApp Number *</label>
+                        <input type="tel" id="guestPhone" name="guestPhone" placeholder="e.g., +33 6 12 34 56 78" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="guestDate">Preferred Date & Time *</label>
+                        <input type="datetime-local" id="guestDate" name="guestDate" required>
+                    </div>
+                    <div class="form-field" style="grid-column: 1 / -1;">
+                        <label for="guestNotes">Special Notes / Health or Safari Preferences (Optional)</label>
+                        <textarea id="guestNotes" name="guestNotes" placeholder="Any allergies, preferred morning/evening slot, or pickup notes..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Payment Option, Calculation, Bank Details & Slip Upload -->
+            <section class="booking-card">
+                <h2 class="card-heading"><i class="fas fa-file-invoice-dollar"></i> 3. Payment Calculation & Slip Upload</h2>
+
+                <div class="pay-mode-buttons">
+                    <button type="button" id="modeAdvanceBtn" class="pay-mode-btn active">
+                        <span class="pay-mode-title">35% Advance Deposit</span>
+                        <span class="pay-mode-sub">Pay 35% now to reserve; pay remaining 65% on arrival</span>
+                    </button>
+                    <button type="button" id="modeFullBtn" class="pay-mode-btn">
+                        <span class="pay-mode-title">100% Full Payment</span>
+                        <span class="pay-mode-sub">Pay the complete booking amount upfront</span>
+                    </button>
+                </div>
+
+                <div class="calc-box">
+                    <div class="calc-row">
+                        <span>Selected Items:</span>
+                        <span id="selectedItemsText">None selected</span>
+                    </div>
+                    <div class="calc-row">
+                        <span>Total Booking Amount:</span>
+                        <strong id="totalAmountText">$0.00</strong>
+                    </div>
+                    <div class="calc-row highlight">
+                        <span id="payableNowLabel">Payable Now (35% Advance):</span>
+                        <span id="payableNowText">$0.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span>Balance Due at Retreat:</span>
+                        <span id="balanceDueText">$0.00</span>
+                    </div>
+                    <div id="balanceNote" class="balance-note">
+                        You selected the <strong>35% Advance</strong> option. The remaining balance is payable upon arrival at Araliyā Ayurveda & Wellness.
+                    </div>
+                </div>
+
+                <!-- Bank Account Details -->
+                <div class="bank-box">
+                    <h4><i class="fas fa-university"></i> Bank Transfer Details</h4>
+                    <div class="bank-grid">
+                        <div><strong>Bank Name:</strong> [YOUR BANK NAME]</div>
+                        <div><strong>Branch:</strong> [YOUR BRANCH, e.g., Habarana / Dambulla]</div>
+                        <div><strong>Account Name:</strong> [YOUR ACCOUNT HOLDER NAME]</div>
+                        <div><strong>Account Number:</strong> [YOUR ACCOUNT NUMBER]</div>
+                        <div><strong>SWIFT / BIC Code:</strong> [YOUR BANK SWIFT CODE]</div>
+                        <div><strong>Reference Note:</strong> Guest Full Name</div>
+                    </div>
+                </div>
+
+                <!-- Payment Slip Upload -->
+                <div class="slip-box">
+                    <div class="form-field">
+                        <label for="paymentSlip">Upload Payment Transfer Slip / Screenshot (Photo / PDF) *</label>
+                        <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*,application/pdf" required>
+                    </div>
+                    <img id="slipPreview" class="slip-preview" alt="Payment Slip Preview">
+                </div>
+
+                <button type="submit" id="submitBookingBtn" class="submit-btn">
+                    Confirm Booking & Send Slip
+                </button>
+
+                <p id="bookingStatusMsg" class="status-msg"></p>
+
+                <div id="waConfirmBox" class="wa-confirm-box">
+                    <a id="waConfirmLink" href="#" target="_blank" rel="noopener noreferrer" class="wa-confirm-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Send Booking Summary on WhatsApp</span>
+                    </a>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <!-- WhatsApp Floating Pill Button -->
+    <a href="https://wa.me/94762520630" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <span class="whatsapp-icon-circle">
+            <i class="fab fa-whatsapp"></i>
+        </span>
+        <span class="whatsapp-text-group">
+            <span class="whatsapp-subtext">Need help?</span>
+            <span class="whatsapp-maintext">Chat with us</span>
+        </span>
+    </a>
+
+    <footer id="contacts">
+        <div class="footer-content">
+            <div>
+                <h3>Araliyā Ayurveda & Wellness</h3>
+                <p>No 73, Cinnamon Lodge, Habarana, Sri Lanka</p>
+                <p>Phone: <a href="https://wa.me/94762520630">+94 76 252 0630</a></p>
+                <p>Email: <a href="mailto:araliyaayurvedicspa@gmail.com">araliyaayurvedicspa@gmail.com</a></p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="menu.html">Menu</a></p>
+                <p><a href="Offers.html">Offers</a></p>
+                <p><a href="safari.html">Boat Safari</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Araliyā Ayurvedic & Wellness Retreat is a Sri Lanka Tourism Development Authority approved Ayurveda Wellness Retreat</p>
+            <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Replace with your deployed Google Apps Script Web App URL for bookings + slip upload
+        const BOOKING_WEB_APP_URL = "PASTE_YOUR_BOOKING_WEB_APP_URL_HERE";
+
+        // Approximate exchange rate (adjust whenever needed)
+        const USD_TO_LKR = 332;
+        const ADVANCE_RATE = 0.35; // 35%
+
+        const SERVICES = [
+            { id: "full_body_massage", name: "Full Body Massage", tag: "Ayurvedic Therapy", usd: 25 },
+            { id: "kati_vasti", name: "Kati Vasti", tag: "Ayurvedic Therapy", usd: 25 },
+            { id: "hot_pillow", name: "Hot Pillow Treatment", tag: "Ayurvedic Therapy", usd: 25 },
+            { id: "reflexology", name: "Reflexology (Foot Massage)", tag: "Ayurvedic Therapy", usd: 25 },
+            { id: "shirodhara", name: "Shirodhara", tag: "Ayurvedic Therapy", usd: 25 },
+            { id: "safari", name: "Safari", tag: "Nature Experience", usd: 40 },
+            { id: "boat_safari", name: "Boat Safari", tag: "Lake & Wildlife", usd: 40 }
+        ];
+
+        let currentCurrency = "USD"; // "USD" or "LKR"
+        let paymentMode = "advance"; // "advance" (35%) or "full" (100%)
+
+        function formatMoney(usdAmount) {
+            if (currentCurrency === "LKR") {
+                const lkrVal = Math.round(usdAmount * USD_TO_LKR);
+                return "LKR " + lkrVal.toLocaleString("en-US");
+            }
+            return "$" + Number(usdAmount).toFixed(2);
+        }
+
+        function renderServices() {
+            const grid = document.getElementById("servicesGrid");
+            const checkedIds = new Set(
+                Array.from(document.querySelectorAll(".service-checkbox:checked")).map((cb) => cb.value)
+            );
+
+            grid.innerHTML = SERVICES.map((srv) => {
+                const isChecked = checkedIds.has(srv.id);
+                return `
+                    <label class="service-option ${isChecked ? "selected" : ""}" data-id="${srv.id}">
+                        <span class="service-left">
+                            <input type="checkbox" class="service-checkbox" value="${srv.id}" ${isChecked ? "checked" : ""}>
+                            <span>
+                                <span class="service-name">${srv.name}</span>
+                                <span class="service-tag">${srv.tag}</span>
+                            </span>
+                        </span>
+                        <span class="service-price">${formatMoney(srv.usd)}</span>
+                    </label>
+                `;
+            }).join("");
+
+            document.querySelectorAll(".service-checkbox").forEach((cb) => {
+                cb.addEventListener("change", function () {
+                    const label = cb.closest(".service-option");
+                    if (label) label.classList.toggle("selected", cb.checked);
+                    updateCalculation();
+                });
+            });
+        }
+
+        function getSelectedServices() {
+            const checkedIds = Array.from(document.querySelectorAll(".service-checkbox:checked")).map((cb) => cb.value);
+            return SERVICES.filter((s) => checkedIds.includes(s.id));
+        }
+
+        function updateCalculation() {
+            const selected = getSelectedServices();
+            const totalUsd = selected.reduce((sum, item) => sum + item.usd, 0);
+            const payableUsd = paymentMode === "advance" ? totalUsd * ADVANCE_RATE : totalUsd;
+            const balanceUsd = Math.max(0, totalUsd - payableUsd);
+
+            document.getElementById("selectedItemsText").textContent = selected.length
+                ? selected.map((s) => s.name).join(", ")
+                : "None selected";
+
+            document.getElementById("totalAmountText").textContent = formatMoney(totalUsd);
+            document.getElementById("payableNowLabel").textContent =
+                paymentMode === "advance" ? "Payable Now (35% Advance):" : "Payable Now (100% Full):";
+            document.getElementById("payableNowText").textContent = formatMoney(payableUsd);
+            document.getElementById("balanceDueText").textContent = formatMoney(balanceUsd);
+
+            const balanceNote = document.getElementById("balanceNote");
+            if (paymentMode === "advance") {
+                balanceNote.innerHTML = `You selected the <strong>35% Advance</strong> option. Remaining balance (<strong>${formatMoney(balanceUsd)}</strong>) is payable upon arrival at Araliyā Ayurveda & Wellness.`;
+            } else {
+                balanceNote.innerHTML = `You selected the <strong>100% Full Payment</strong> option. No remaining balance will be due upon arrival.`;
+            }
+        }
+
+        function setCurrency(curr) {
+            currentCurrency = curr;
+            document.getElementById("btnUSD").classList.toggle("active", curr === "USD");
+            document.getElementById("btnLKR").classList.toggle("active", curr === "LKR");
+            renderServices();
+            updateCalculation();
+        }
+
+        function setPaymentMode(mode) {
+            paymentMode = mode;
+            document.getElementById("modeAdvanceBtn").classList.toggle("active", mode === "advance");
+            document.getElementById("modeFullBtn").classList.toggle("active", mode === "full");
+            updateCalculation();
+        }
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const result = String(reader.result || "");
+                    const parts = result.split(",");
+                    resolve({
+                        base64: parts.length > 1 ? parts[1] : result,
+                        mimeType: file.type || "application/octet-stream",
+                        fileName: file.name
+                    });
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderServices();
+            updateCalculation();
+
+            document.getElementById("btnUSD").addEventListener("click", () => setCurrency("USD"));
+            document.getElementById("btnLKR").addEventListener("click", () => setCurrency("LKR"));
+            document.getElementById("modeAdvanceBtn").addEventListener("click", () => setPaymentMode("advance"));
+            document.getElementById("modeFullBtn").addEventListener("click", () => setPaymentMode("full"));
+
+            const slipInput = document.getElementById("paymentSlip");
+            const slipPreview = document.getElementById("slipPreview");
+            slipInput.addEventListener("change", function () {
+                const file = slipInput.files && slipInput.files[0];
+                if (!file) {
+                    slipPreview.style.display = "none";
+                    return;
+                }
+                if (file.type.startsWith("image/")) {
+                    const url = URL.createObjectURL(file);
+                    slipPreview.src = url;
+                    slipPreview.style.display = "block";
+                } else {
+                    slipPreview.style.display = "none";
+                }
+            });
+
+            const form = document.getElementById("bookingForm");
+            const statusEl = document.getElementById("bookingStatusMsg");
+            const submitBtn = document.getElementById("submitBookingBtn");
+            const waBox = document.getElementById("waConfirmBox");
+            const waLink = document.getElementById("waConfirmLink");
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const selected = getSelectedServices();
+                if (!selected.length) {
+                    statusEl.style.color = "#b91c1c";
+                    statusEl.textContent = "Please select at least one treatment or safari experience.";
+                    return;
+                }
+
+                const slipFile = slipInput.files && slipInput.files[0];
+                if (!slipFile) {
+                    statusEl.style.color = "#b91c1c";
+                    statusEl.textContent = "Please attach your payment transfer slip photo/screenshot.";
+                    return;
+                }
+
+                const guestName = document.getElementById("guestName").value.trim();
+                const guestEmail = document.getElementById("guestEmail").value.trim();
+                const guestPhone = document.getElementById("guestPhone").value.trim();
+                const guestDate = document.getElementById("guestDate").value;
+                const guestNotes = document.getElementById("guestNotes").value.trim();
+
+                const totalUsd = selected.reduce((sum, item) => sum + item.usd, 0);
+                const payableUsd = paymentMode === "advance" ? totalUsd * ADVANCE_RATE : totalUsd;
+                const balanceUsd = Math.max(0, totalUsd - payableUsd);
+
+                const itemsSummary = selected.map((s) => s.name).join(", ");
+                const totalFormatted = formatMoney(totalUsd);
+                const payableFormatted = formatMoney(payableUsd);
+                const balanceFormatted = formatMoney(balanceUsd);
+
+                const waText = encodeURIComponent(
+                    `Hello Araliyā Ayurveda & Wellness,\n` +
+                    `I have submitted a booking with payment slip:\n` +
+                    `• Name: ${guestName}\n` +
+                    `• Items: ${itemsSummary}\n` +
+                    `• Date/Time: ${guestDate}\n` +
+                    `• Payment Option: ${paymentMode === "advance" ? "35% Advance" : "100% Full"}\n` +
+                    `• Total: ${totalFormatted}\n` +
+                    `• Paid Now: ${payableFormatted}\n` +
+                    `• Balance Due: ${balanceFormatted}`
+                );
+                waLink.href = `https://wa.me/94762520630?text=${waText}`;
+                waBox.style.display = "block";
+
+                if (!BOOKING_WEB_APP_URL || BOOKING_WEB_APP_URL.includes("PASTE_YOUR_BOOKING_WEB_APP_URL_HERE")) {
+                    statusEl.style.color = "#b45309";
+                    statusEl.textContent = "Booking summary ready! Add your Google Apps Script Booking Web App URL to auto-save slips & emails, or tap WhatsApp below to send details directly.";
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Uploading Slip & Saving Booking...";
+                statusEl.textContent = "";
+
+                try {
+                    const slipData = await fileToBase64(slipFile);
+
+                    await fetch(BOOKING_WEB_APP_URL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify({
+                            guestName,
+                            guestEmail,
+                            guestPhone,
+                            guestDate,
+                            guestNotes,
+                            items: itemsSummary,
+                            currency: currentCurrency,
+                            paymentMode: paymentMode === "advance" ? "35% Advance" : "100% Full",
+                            totalAmount: totalFormatted,
+                            payableNow: payableFormatted,
+                            balanceDue: balanceFormatted,
+                            slip: slipData
+                        })
+                    });
+
+                    form.reset();
+                    slipPreview.style.display = "none";
+                    renderServices();
+                    updateCalculation();
+                    statusEl.style.color = "#15803d";
+                    statusEl.textContent = "Booking submitted! Your payment slip has been received. You can also send a quick confirmation message on WhatsApp below.";
+                } catch (err) {
+                    statusEl.style.color = "#b91c1c";
+                    statusEl.textContent = "Upload error occurred. Please tap the WhatsApp button below to send your booking details and slip directly.";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Confirm Booking & Send Slip";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
