@@ -414,7 +414,7 @@
             border: 1px solid #ddd;
         }
 
-        /* Submit & WhatsApp Action */
+        /* Submit & Mandatory WhatsApp Action */
         .submit-btn {
             width: 100%;
             background-color: var(--primary-color);
@@ -440,21 +440,42 @@
         }
 
         .wa-confirm-box {
-            margin-top: 14px;
+            margin-top: 16px;
             display: none;
+            flex-direction: column;
+            gap: 10px;
+            background: #eefaf2;
+            border: 1.5px solid #25d366;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .wa-mandatory-note {
+            font-size: 13px;
+            font-weight: 700;
+            color: #14532d;
+            line-height: 1.5;
         }
 
         .wa-confirm-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background-color: #25d366;
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
-            padding: 11px 20px;
+            padding: 12px 22px;
             border-radius: 25px;
             font-weight: 700;
             font-size: 14px;
+            box-shadow: 0 5px 14px rgba(37, 211, 102, 0.35);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .wa-confirm-btn:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
         }
 
         /* WhatsApp Pill Button */
@@ -543,6 +564,23 @@
             color: #ccc;
         }
 
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-left {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+
         @media (max-width: 720px) {
             .services-grid,
             .form-grid,
@@ -598,7 +636,7 @@
                 <button type="button" id="btnUSD" class="currency-btn active">USD ($)</button>
                 <button type="button" id="btnLKR" class="currency-btn">LKR (Rs.)</button>
             </div>
-            <span id="rateNote" class="rate-note">Indicative rate: 1 USD = LKR 332 (editable in code)</span>
+            <span id="rateNote" class="rate-note">Indicative rate: 1 USD = LKR 332</span>
         </div>
 
         <form id="bookingForm">
@@ -672,7 +710,7 @@
                     </div>
                 </div>
 
-                <!-- Bank Account Details -->
+                <!-- Bank Account Details (Replace placeholders with your bank details) -->
                 <div class="bank-box">
                     <h4><i class="fas fa-university"></i> Bank Transfer Details</h4>
                     <div class="bank-grid">
@@ -700,10 +738,15 @@
 
                 <p id="bookingStatusMsg" class="status-msg"></p>
 
+                <!-- Mandatory WhatsApp Confirmation Step -->
                 <div id="waConfirmBox" class="wa-confirm-box">
+                    <p class="wa-mandatory-note">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Required Final Step: Please tap the button below to send your booking details on WhatsApp (and attach your payment slip photo in WhatsApp) so we get an instant notification and confirm your slot right away.
+                    </p>
                     <a id="waConfirmLink" href="#" target="_blank" rel="noopener noreferrer" class="wa-confirm-btn">
                         <i class="fab fa-whatsapp"></i>
-                        <span>Send Booking Summary on WhatsApp</span>
+                        <span>Send Booking on WhatsApp (Required)</span>
                     </a>
                 </div>
             </section>
@@ -937,14 +980,15 @@
                     `• Payment Option: ${paymentMode === "advance" ? "35% Advance" : "100% Full"}\n` +
                     `• Total: ${totalFormatted}\n` +
                     `• Paid Now: ${payableFormatted}\n` +
-                    `• Balance Due: ${balanceFormatted}`
+                    `• Balance Due: ${balanceFormatted}\n\n` +
+                    `(I will attach my payment slip photo right below.)`
                 );
                 waLink.href = `https://wa.me/94762520630?text=${waText}`;
-                waBox.style.display = "block";
+                waBox.style.display = "flex";
 
                 if (!BOOKING_WEB_APP_URL || BOOKING_WEB_APP_URL.includes("PASTE_YOUR_BOOKING_WEB_APP_URL_HERE")) {
-                    statusEl.style.color = "#b45309";
-                    statusEl.textContent = "Booking summary ready! Add your Google Apps Script Booking Web App URL to auto-save slips & emails, or tap WhatsApp below to send details directly.";
+                    statusEl.style.color = "#15803d";
+                    statusEl.textContent = "Booking details prepared! Now please complete the required WhatsApp step below.";
                     return;
                 }
 
@@ -980,10 +1024,10 @@
                     renderServices();
                     updateCalculation();
                     statusEl.style.color = "#15803d";
-                    statusEl.textContent = "Booking submitted! Your payment slip has been received. You can also send a quick confirmation message on WhatsApp below.";
+                    statusEl.textContent = "Booking saved! Now please complete the required WhatsApp step below so we can confirm your slot immediately.";
                 } catch (err) {
                     statusEl.style.color = "#b91c1c";
-                    statusEl.textContent = "Upload error occurred. Please tap the WhatsApp button below to send your booking details and slip directly.";
+                    statusEl.textContent = "Upload error occurred. Please tap the required WhatsApp button below to send your booking details and slip directly.";
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Confirm Booking & Send Slip";
