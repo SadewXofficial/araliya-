@@ -1,10 +1,10 @@
-url<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Booking - Araliyā Ayurveda & Wellness</title>
-    <meta name="description" content="Book authentic Ayurvedic treatments and boat safari at Araliyā Ayurveda & Wellness in Habarana with instant advance or full payment calculation.">
+    <meta name="description" content="Book authentic Ayurvedic treatments and boat safari at Araliyā Ayurveda & Wellness in Habarana with advance, full, or pay-on-arrival options.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +121,7 @@ url<!DOCTYPE html>
             text-align: center;
             color: #666;
             font-size: 15px;
-            max-width: 660px;
+            max-width: 680px;
             margin: 0 auto 20px auto;
         }
 
@@ -293,10 +293,10 @@ url<!DOCTYPE html>
             resize: vertical;
         }
 
-        /* Payment Mode Buttons (Advance 35% vs Full 100%) */
+        /* Payment Mode Buttons (Advance 35%, Full 100%, Reserve Only) */
         .pay-mode-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin-bottom: 20px;
         }
@@ -394,6 +394,23 @@ url<!DOCTYPE html>
 
         .bank-grid strong {
             color: #f3e5cb;
+        }
+
+        /* Reserve-Only Info Box */
+        .reserve-only-box {
+            display: none;
+            background: #f4f7f5;
+            border: 1px solid #c9dcd1;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            font-size: 13.5px;
+            color: #2f4239;
+        }
+
+        .reserve-only-box strong {
+            color: var(--primary-color);
         }
 
         /* Slip Upload */
@@ -581,10 +598,15 @@ url<!DOCTYPE html>
             }
         }
 
+        @media (max-width: 820px) {
+            .pay-mode-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 720px) {
             .services-grid,
             .form-grid,
-            .pay-mode-buttons,
             .bank-grid {
                 grid-template-columns: 1fr;
             }
@@ -627,7 +649,7 @@ url<!DOCTYPE html>
 
     <main class="container">
         <h1 class="section-title">Online Booking</h1>
-        <p class="section-subtitle">Select your Ayurvedic treatments or safari experience, choose 35% Advance or Full Payment, transfer to our bank account, and upload your payment slip.</p>
+        <p class="section-subtitle">Select your Ayurvedic treatments or safari experience, choose 35% Advance, 100% Full Payment, or Reserve Only (Pay on Arrival), and confirm via WhatsApp.</p>
         <div class="divider"></div>
 
         <!-- Top Currency Toggle (USD / LKR) -->
@@ -675,16 +697,20 @@ url<!DOCTYPE html>
 
             <!-- Step 3: Payment Option, Calculation, Bank Details & Slip Upload -->
             <section class="booking-card">
-                <h2 class="card-heading"><i class="fas fa-file-invoice-dollar"></i> 3. Payment Calculation & Slip Upload</h2>
+                <h2 class="card-heading"><i class="fas fa-file-invoice-dollar"></i> 3. Payment Option & Calculation</h2>
 
                 <div class="pay-mode-buttons">
                     <button type="button" id="modeAdvanceBtn" class="pay-mode-btn active">
                         <span class="pay-mode-title">35% Advance Deposit</span>
-                        <span class="pay-mode-sub">Pay 35% now to reserve; pay remaining 65% on arrival</span>
+                        <span class="pay-mode-sub">Pay 35% now via transfer; pay remaining 65% on arrival</span>
                     </button>
                     <button type="button" id="modeFullBtn" class="pay-mode-btn">
                         <span class="pay-mode-title">100% Full Payment</span>
-                        <span class="pay-mode-sub">Pay the complete booking amount upfront</span>
+                        <span class="pay-mode-sub">Pay the complete booking amount upfront via transfer</span>
+                    </button>
+                    <button type="button" id="modeReserveBtn" class="pay-mode-btn">
+                        <span class="pay-mode-title">Reserve Only (Pay on Arrival)</span>
+                        <span class="pay-mode-sub">Book your slot now; pay full amount when you arrive</span>
                     </button>
                 </div>
 
@@ -706,27 +732,32 @@ url<!DOCTYPE html>
                         <span id="balanceDueText">$0.00</span>
                     </div>
                     <div id="balanceNote" class="balance-note">
-                        You selected the <strong>35% Advance</strong> option. The remaining balance is payable upon arrival at Araliyā Ayurveda & Wellness.
+                        You selected the <strong>35% Advance</strong> option. Remaining balance is payable upon arrival at Araliyā Ayurveda & Wellness.
                     </div>
                 </div>
 
-                <!-- Bank Account Details (Replace placeholders with your bank details) -->
-                <div class="bank-box">
+                <!-- Bank Account Details (Shown for 35% Advance & 100% Full Payment) -->
+                <div id="bankDetailsBox" class="bank-box">
                     <h4><i class="fas fa-university"></i> Bank Transfer Details</h4>
                     <div class="bank-grid">
-                        <div><strong>Bank Name:</strong> [peoples bank]</div>
-                        <div><strong>Branch:</strong> [Melsiripura]</div>
-                        <div><strong>Account Name:</strong> [DG SADEW PRABHASH MIHIRANGA]</div>
-                        <div><strong>Account Number:</strong> [344200130032014]</div>
-                        <div><strong>SWIFT / BIC Code:</strong> [PSBKLKLX (or PSBKLKLXXXX if an 11-character code is required)]</div>
+                        <div><strong>Bank Name:</strong> People's Bank (Sri Lanka)</div>
+                        <div><strong>Branch:</strong> Melsiripura</div>
+                        <div><strong>Account Name:</strong> DG SADEW PRABHASH MIHIRANGA</div>
+                        <div><strong>Account Number:</strong> 344200130032014</div>
+                        <div><strong>SWIFT / BIC Code:</strong> PSBKLKLX (PSBKLKLXXXX if 11 chars needed)</div>
                         <div><strong>Reference Note:</strong> Guest Full Name</div>
                     </div>
                 </div>
 
-                <!-- Payment Slip Upload -->
-                <div class="slip-box">
+                <!-- Reserve-Only Info Box (Shown when Reserve Only is selected) -->
+                <div id="reserveOnlyBox" class="reserve-only-box">
+                    <strong>Reserve Only (Pay on Arrival):</strong> No bank transfer or payment slip is required right now. Reserved slots are held up to <strong>20 minutes</strong> past the scheduled booking time. Please arrive on time or message us on WhatsApp if you are running late.
+                </div>
+
+                <!-- Payment Slip Upload (Required for Advance/Full; Optional for Reserve Only) -->
+                <div id="slipBox" class="slip-box">
                     <div class="form-field">
-                        <label for="paymentSlip">Upload Payment Transfer Slip / Screenshot (Photo / PDF) *</label>
+                        <label id="slipLabel" for="paymentSlip">Upload Payment Transfer Slip / Screenshot (Photo / PDF) *</label>
                         <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*,application/pdf" required>
                     </div>
                     <img id="slipPreview" class="slip-preview" alt="Payment Slip Preview">
@@ -740,7 +771,7 @@ url<!DOCTYPE html>
 
                 <!-- Mandatory WhatsApp Confirmation Step -->
                 <div id="waConfirmBox" class="wa-confirm-box">
-                    <p class="wa-mandatory-note">
+                    <p id="waMandatoryNote" class="wa-mandatory-note">
                         <i class="fas fa-exclamation-circle"></i>
                         Required Final Step: Please tap the button below to send your booking details on WhatsApp (and attach your payment slip photo in WhatsApp) so we get an instant notification and confirm your slot right away.
                     </p>
@@ -787,10 +818,8 @@ url<!DOCTYPE html>
     </footer>
 
     <script>
-        // Replace with your deployed Google Apps Script Web App URL for bookings + slip upload
         const BOOKING_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz4rBq66QrLtG_0Sz94O6KsFvesAsAa12xw9yhC0Zpgm8tSeBC_ArqHxlZz0nWCZM-8FA/exec";
 
-        // Approximate exchange rate (adjust whenever needed)
         const USD_TO_LKR = 332;
         const ADVANCE_RATE = 0.35; // 35%
 
@@ -805,7 +834,7 @@ url<!DOCTYPE html>
         ];
 
         let currentCurrency = "USD"; // "USD" or "LKR"
-        let paymentMode = "advance"; // "advance" (35%) or "full" (100%)
+        let paymentMode = "advance"; // "advance" | "full" | "reserve"
 
         function formatMoney(usdAmount) {
             if (currentCurrency === "LKR") {
@@ -813,6 +842,12 @@ url<!DOCTYPE html>
                 return "LKR " + lkrVal.toLocaleString("en-US");
             }
             return "$" + Number(usdAmount).toFixed(2);
+        }
+
+        function getPaymentModeLabel() {
+            if (paymentMode === "advance") return "35% Advance";
+            if (paymentMode === "full") return "100% Full";
+            return "Reserve Only (Pay on Arrival)";
         }
 
         function renderServices() {
@@ -854,24 +889,68 @@ url<!DOCTYPE html>
         function updateCalculation() {
             const selected = getSelectedServices();
             const totalUsd = selected.reduce((sum, item) => sum + item.usd, 0);
-            const payableUsd = paymentMode === "advance" ? totalUsd * ADVANCE_RATE : totalUsd;
-            const balanceUsd = Math.max(0, totalUsd - payableUsd);
+
+            let payableUsd = totalUsd;
+            let balanceUsd = 0;
+
+            if (paymentMode === "advance") {
+                payableUsd = totalUsd * ADVANCE_RATE;
+                balanceUsd = Math.max(0, totalUsd - payableUsd);
+            } else if (paymentMode === "full") {
+                payableUsd = totalUsd;
+                balanceUsd = 0;
+            } else {
+                // Reserve Only (Pay on Arrival)
+                payableUsd = 0;
+                balanceUsd = totalUsd;
+            }
 
             document.getElementById("selectedItemsText").textContent = selected.length
                 ? selected.map((s) => s.name).join(", ")
                 : "None selected";
 
             document.getElementById("totalAmountText").textContent = formatMoney(totalUsd);
-            document.getElementById("payableNowLabel").textContent =
-                paymentMode === "advance" ? "Payable Now (35% Advance):" : "Payable Now (100% Full):";
+
+            const payableLabelEl = document.getElementById("payableNowLabel");
+            if (paymentMode === "advance") {
+                payableLabelEl.textContent = "Payable Now (35% Advance):";
+            } else if (paymentMode === "full") {
+                payableLabelEl.textContent = "Payable Now (100% Full):";
+            } else {
+                payableLabelEl.textContent = "Payable Now (Reserve Only):";
+            }
+
             document.getElementById("payableNowText").textContent = formatMoney(payableUsd);
             document.getElementById("balanceDueText").textContent = formatMoney(balanceUsd);
 
             const balanceNote = document.getElementById("balanceNote");
+            const bankDetailsBox = document.getElementById("bankDetailsBox");
+            const reserveOnlyBox = document.getElementById("reserveOnlyBox");
+            const slipInput = document.getElementById("paymentSlip");
+            const slipLabel = document.getElementById("slipLabel");
+            const submitBtn = document.getElementById("submitBookingBtn");
+
             if (paymentMode === "advance") {
                 balanceNote.innerHTML = `You selected the <strong>35% Advance</strong> option. Remaining balance (<strong>${formatMoney(balanceUsd)}</strong>) is payable upon arrival at Araliyā Ayurveda & Wellness.`;
-            } else {
+                bankDetailsBox.style.display = "block";
+                reserveOnlyBox.style.display = "none";
+                slipInput.required = true;
+                slipLabel.textContent = "Upload Payment Transfer Slip / Screenshot (Photo / PDF) *";
+                submitBtn.textContent = "Confirm Booking & Send Slip";
+            } else if (paymentMode === "full") {
                 balanceNote.innerHTML = `You selected the <strong>100% Full Payment</strong> option. No remaining balance will be due upon arrival.`;
+                bankDetailsBox.style.display = "block";
+                reserveOnlyBox.style.display = "none";
+                slipInput.required = true;
+                slipLabel.textContent = "Upload Payment Transfer Slip / Screenshot (Photo / PDF) *";
+                submitBtn.textContent = "Confirm Booking & Send Slip";
+            } else {
+                balanceNote.innerHTML = `You selected <strong>Reserve Only (Pay on Arrival)</strong>. Full amount (<strong>${formatMoney(balanceUsd)}</strong>) is payable upon arrival. Reserved slots are held up to <strong>20 minutes</strong> past booking time.`;
+                bankDetailsBox.style.display = "none";
+                reserveOnlyBox.style.display = "block";
+                slipInput.required = false;
+                slipLabel.textContent = "Optional Slip / Note Attachment (Not required for Pay on Arrival)";
+                submitBtn.textContent = "Confirm Slot Reservation";
             }
         }
 
@@ -887,6 +966,7 @@ url<!DOCTYPE html>
             paymentMode = mode;
             document.getElementById("modeAdvanceBtn").classList.toggle("active", mode === "advance");
             document.getElementById("modeFullBtn").classList.toggle("active", mode === "full");
+            document.getElementById("modeReserveBtn").classList.toggle("active", mode === "reserve");
             updateCalculation();
         }
 
@@ -915,6 +995,7 @@ url<!DOCTYPE html>
             document.getElementById("btnLKR").addEventListener("click", () => setCurrency("LKR"));
             document.getElementById("modeAdvanceBtn").addEventListener("click", () => setPaymentMode("advance"));
             document.getElementById("modeFullBtn").addEventListener("click", () => setPaymentMode("full"));
+            document.getElementById("modeReserveBtn").addEventListener("click", () => setPaymentMode("reserve"));
 
             const slipInput = document.getElementById("paymentSlip");
             const slipPreview = document.getElementById("slipPreview");
@@ -937,6 +1018,7 @@ url<!DOCTYPE html>
             const statusEl = document.getElementById("bookingStatusMsg");
             const submitBtn = document.getElementById("submitBookingBtn");
             const waBox = document.getElementById("waConfirmBox");
+            const waNote = document.getElementById("waMandatoryNote");
             const waLink = document.getElementById("waConfirmLink");
 
             form.addEventListener("submit", async function (e) {
@@ -950,7 +1032,8 @@ url<!DOCTYPE html>
                 }
 
                 const slipFile = slipInput.files && slipInput.files[0];
-                if (!slipFile) {
+                const requiresSlip = paymentMode === "advance" || paymentMode === "full";
+                if (requiresSlip && !slipFile) {
                     statusEl.style.color = "#b91c1c";
                     statusEl.textContent = "Please attach your payment transfer slip photo/screenshot.";
                     return;
@@ -963,27 +1046,52 @@ url<!DOCTYPE html>
                 const guestNotes = document.getElementById("guestNotes").value.trim();
 
                 const totalUsd = selected.reduce((sum, item) => sum + item.usd, 0);
-                const payableUsd = paymentMode === "advance" ? totalUsd * ADVANCE_RATE : totalUsd;
-                const balanceUsd = Math.max(0, totalUsd - payableUsd);
+                let payableUsd = totalUsd;
+                let balanceUsd = 0;
+
+                if (paymentMode === "advance") {
+                    payableUsd = totalUsd * ADVANCE_RATE;
+                    balanceUsd = Math.max(0, totalUsd - payableUsd);
+                } else if (paymentMode === "full") {
+                    payableUsd = totalUsd;
+                    balanceUsd = 0;
+                } else {
+                    payableUsd = 0;
+                    balanceUsd = totalUsd;
+                }
 
                 const itemsSummary = selected.map((s) => s.name).join(", ");
                 const totalFormatted = formatMoney(totalUsd);
                 const payableFormatted = formatMoney(payableUsd);
                 const balanceFormatted = formatMoney(balanceUsd);
+                const modeLabel = getPaymentModeLabel();
 
-                const waText = encodeURIComponent(
-                    `Hello Araliyā Ayurveda & Wellness,\n` +
-                    `I have submitted a booking with payment slip:\n` +
-                    `• Name: ${guestName}\n` +
-                    `• Items: ${itemsSummary}\n` +
-                    `• Date/Time: ${guestDate}\n` +
-                    `• Payment Option: ${paymentMode === "advance" ? "35% Advance" : "100% Full"}\n` +
-                    `• Total: ${totalFormatted}\n` +
-                    `• Paid Now: ${payableFormatted}\n` +
-                    `• Balance Due: ${balanceFormatted}\n\n` +
-                    `(I will attach my payment slip photo right below.)`
-                );
-                waLink.href = `https://wa.me/94779106300?text=${waText}`;
+                const waBody =
+                    paymentMode === "reserve"
+                        ? `Hello Araliyā Ayurveda & Wellness,\n` +
+                          `I have submitted a slot reservation (Pay on Arrival):\n` +
+                          `• Name: ${guestName}\n` +
+                          `• Items: ${itemsSummary}\n` +
+                          `• Date/Time: ${guestDate}\n` +
+                          `• Payment Option: ${modeLabel}\n` +
+                          `• Total / Due on Arrival: ${balanceFormatted}\n` +
+                          `• Slot Hold Rule: Up to 20 mins past booking time`
+                        : `Hello Araliyā Ayurveda & Wellness,\n` +
+                          `I have submitted a booking with payment slip:\n` +
+                          `• Name: ${guestName}\n` +
+                          `• Items: ${itemsSummary}\n` +
+                          `• Date/Time: ${guestDate}\n` +
+                          `• Payment Option: ${modeLabel}\n` +
+                          `• Total: ${totalFormatted}\n` +
+                          `• Paid Now: ${payableFormatted}\n` +
+                          `• Balance Due: ${balanceFormatted}\n\n` +
+                          `(I will attach my payment slip photo right below.)`;
+
+                waLink.href = `https://wa.me/94779106300?text=${encodeURIComponent(waBody)}`;
+                waNote.innerHTML =
+                    paymentMode === "reserve"
+                        ? `<i class="fas fa-exclamation-circle"></i> Required Final Step: Please tap the button below to send your slot reservation details on WhatsApp so we can hold your time (up to 20 mins past booking time) and confirm right away.`
+                        : `<i class="fas fa-exclamation-circle"></i> Required Final Step: Please tap the button below to send your booking details on WhatsApp (and attach your payment slip photo in WhatsApp) so we get an instant notification and confirm your slot right away.`;
                 waBox.style.display = "flex";
 
                 if (!BOOKING_WEB_APP_URL || BOOKING_WEB_APP_URL.includes("PASTE_YOUR_BOOKING_WEB_APP_URL_HERE")) {
@@ -993,11 +1101,11 @@ url<!DOCTYPE html>
                 }
 
                 submitBtn.disabled = true;
-                submitBtn.textContent = "Uploading Slip & Saving Booking...";
+                submitBtn.textContent = requiresSlip ? "Uploading Slip & Saving Booking..." : "Saving Reservation...";
                 statusEl.textContent = "";
 
                 try {
-                    const slipData = await fileToBase64(slipFile);
+                    const slipData = slipFile ? await fileToBase64(slipFile) : null;
 
                     await fetch(BOOKING_WEB_APP_URL, {
                         method: "POST",
@@ -1011,7 +1119,7 @@ url<!DOCTYPE html>
                             guestNotes,
                             items: itemsSummary,
                             currency: currentCurrency,
-                            paymentMode: paymentMode === "advance" ? "35% Advance" : "100% Full",
+                            paymentMode: modeLabel,
                             totalAmount: totalFormatted,
                             payableNow: payableFormatted,
                             balanceDue: balanceFormatted,
@@ -1027,10 +1135,10 @@ url<!DOCTYPE html>
                     statusEl.textContent = "Booking saved! Now please complete the required WhatsApp step below so we can confirm your slot immediately.";
                 } catch (err) {
                     statusEl.style.color = "#b91c1c";
-                    statusEl.textContent = "Upload error occurred. Please tap the required WhatsApp button below to send your booking details and slip directly.";
+                    statusEl.textContent = "Connection error occurred. Please tap the required WhatsApp button below to send your booking details directly.";
                 } finally {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = "Confirm Booking & Send Slip";
+                    updateCalculation();
                 }
             });
         });
