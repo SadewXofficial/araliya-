@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -5,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ayurveda at Araliyā Wellness Retreat - Araliyā Wellness Retreat</title>
     <meta name="description" content="At Araliyā Ayurveda, we offer a wide range of authentic Ayurvedic treatments and wellness packages designed to restore balance, rejuvenate the body, and enhance overall wellbeing.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom Professional Wellness CSS -->
+
     <style>
         :root {
             --primary-color: #1a3328;
@@ -41,7 +41,7 @@
             line-height: 1.6;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -102,7 +102,7 @@
             background-color: var(--accent-color);
         }
 
-        /* Main Content Styles */
+        /* Main Content */
         .container {
             max-width: 960px;
             margin: 40px auto;
@@ -151,7 +151,7 @@
             margin-bottom: 0;
         }
 
-        /* TripAdvisor Travelers' Choice Badge */
+        /* TripAdvisor Badge */
         .tripadvisor-badge-container {
             text-align: center !important;
             margin: 20px auto 50px auto !important;
@@ -184,7 +184,7 @@
             }
         }
 
-        /* Our Place Single-Card Auto Slideshow */
+        /* Our Place Slideshow */
         .our-place-section {
             margin-top: 20px;
             margin-bottom: 45px;
@@ -313,7 +313,7 @@
             border-color: var(--accent-color);
         }
 
-        /* Boat Safari Highlight Card on Home Page */
+        /* Safari Card */
         .safari-highlight-card {
             background: linear-gradient(135deg, var(--primary-color) 0%, #244738 100%);
             color: var(--white);
@@ -378,7 +378,7 @@
             transform: translateY(-2px);
         }
 
-        /* Reviews Section */
+        /* Reviews */
         .reviews-section {
             margin-top: 20px;
             margin-bottom: 40px;
@@ -450,7 +450,6 @@
             font-weight: 600;
         }
 
-        /* Horizontal Swipe Carousel Wrapper */
         .reviews-carousel-wrapper {
             position: relative;
         }
@@ -522,7 +521,6 @@
             background: transparent;
         }
 
-        /* Clean, Refined Review Card Style (Soft Sage/Ivory + Left Accent) */
         .review-item-card {
             flex: 0 0 calc(50% - 9px);
             min-width: 300px;
@@ -588,7 +586,7 @@
             color: #666;
         }
 
-        /* WhatsApp Floating Button */
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 22px;
@@ -653,44 +651,12 @@
 
         .footer-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
         }
-        /*add fuck*/
-       .social-links-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin: 18px 0 14px 0;
-}
 
-.social-icon-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(197, 168, 128, 0.45);
-    color: var(--white);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.25s ease;
-}
-
-.social-icon-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    border-color: var(--accent-color);
-    transform: translateY(-2px);
-}
-/*off fuck*/
         footer h3 {
             font-family: 'Marcellus', serif;
             font-size: 16px;
@@ -700,7 +666,8 @@
             letter-spacing: 1px;
         }
 
-        footer p, footer li {
+        footer p,
+        footer li {
             font-size: 14px;
             margin-bottom: 8px;
             list-style: none;
@@ -717,11 +684,55 @@
             color: var(--accent-color);
         }
 
+        /* Social Media Icons */
+        .social-links-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 18px auto 14px auto;
+            width: 100%;
+        }
+
+        .social-icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(197, 168, 128, 0.45);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .social-icon-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer Bottom - CENTER ALIGNMENT FIX */
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 13px;
+            color: #ccc;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+            width: 100%;
+            margin: 0 auto 8px auto;
             color: #ccc;
         }
 
@@ -731,11 +742,13 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
             .nav-left {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
             }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -748,33 +761,40 @@
                 aspect-ratio: 4 / 3;
                 border-radius: 14px;
             }
+
             .place-slide-caption {
                 font-size: 16px;
             }
+
             .review-form-grid {
                 grid-template-columns: 1fr;
                 gap: 18px;
             }
+
             .review-item-card {
                 flex: 0 0 86%;
                 min-width: 265px;
             }
+
             .text-content,
             .review-form-card {
                 padding: 25px 20px;
             }
+
             .section-title {
                 font-size: 30px;
             }
+
             .safari-highlight-card {
                 padding: 26px 20px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header with Left-Aligned Logo & Menu Bar -->
+    <!-- Header -->
     <header>
         <div class="nav-container">
             <div class="nav-left">
@@ -783,6 +803,7 @@
                         <img src="IMG_0549.jpeg" alt="Araliyā Wellness Retreat">
                     </a>
                 </div>
+
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -795,6 +816,7 @@
                     </ul>
                 </nav>
             </div>
+
             <div class="nav-right">
                 <a href="booking.html" class="book-btn" target="_blank">Book Now</a>
             </div>
@@ -803,73 +825,95 @@
 
     <!-- Main Section -->
     <main class="container">
+
         <h1 class="section-title">Ayurveda at Araliyā</h1>
         <div class="divider"></div>
 
         <div class="text-content">
             <p>At Araliyā Ayurveda, we offer a wide range of authentic Ayurvedic treatments and wellness packages designed to restore balance, rejuvenate the body, and enhance overall wellbeing. Our therapies include personalized doctor consultations, traditional full-body and specialized massages, herbal treatments like Shirodhara, Pottali Sweda, and targeted therapies for back, neck, shoulder, foot, and facial care.</p>
+
             <p>We also provide curated wellness packages for weight management, stress relief, detoxification, skin rejuvenation, muscle recovery, sleep improvement, sinus relief, and women’s health. Each treatment and package is tailored to harmonize the body, mind, and spirit, blending ancient Ayurvedic wisdom with modern care for lasting wellness.</p>
         </div>
 
-        <!-- TripAdvisor Travelers' Choice Badge -->
+        <!-- TripAdvisor Badge -->
         <div class="tripadvisor-badge-container">
             <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener noreferrer" title="View Araliyā on TripAdvisor">
                 <img src="Tripad.png" alt="Tripadvisor Travelers' Choice 2026" class="tripadvisor-badge">
             </a>
         </div>
 
-        <!-- Our Place Single-Card Auto Slideshow -->
+        <!-- Our Place Slideshow -->
         <section id="our-place" class="our-place-section">
+
             <h2 class="section-title">Our Place</h2>
             <p class="section-subtitle">Step into our calm, natural sanctuary in Habarana crafted for peace, warmth, and authentic Ayurvedic healing.</p>
             <div class="divider"></div>
 
             <div id="placeSlideshowCard" class="place-slideshow-card reveal-on-scroll">
+
                 <img id="placeSlideImg" class="place-slide-img" src="our-place/place1.jpeg" alt="Tranquil Sanctuary">
+
                 <div class="place-slide-overlay">
+
                     <div class="place-slide-top">
                         <span id="placeSlideCaption" class="place-slide-caption">Tranquil Sanctuary</span>
                         <span id="placeSlideCounter" class="place-slide-counter">1 / 6</span>
                     </div>
+
                     <div class="place-slide-controls-row">
                         <div id="placeDots" class="place-dots" aria-label="Slide indicators"></div>
+
                         <div class="place-arrows">
                             <button type="button" id="placePrevBtn" class="place-arrow-btn" aria-label="Previous photo">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
+
                             <button type="button" id="placeNextBtn" class="place-arrow-btn" aria-label="Next photo">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Boat Safari & Surroundings Highlight Card -->
+        <!-- Boat Safari -->
         <section class="safari-highlight-card reveal-on-scroll">
+
             <span class="safari-highlight-tag">Lake Front • Large Rock • Boat Safari</span>
+
             <h2>Scenic Boat Safari & Natural Surroundings</h2>
+
             <p>With a serene lake right in front of our retreat, a towering rock formation behind us, and boat safari experiences nearby, visitors can enjoy peaceful nature and water adventures alongside their wellness stay.</p>
+
             <a href="safari.html" class="safari-explore-btn">
                 <span>Explore Boat Safari</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
+
         </section>
 
-        <!-- Guest Reviews Section (Above Contacts Footer) -->
+        <!-- Guest Reviews -->
         <section id="reviews" class="reviews-section">
+
             <h2 class="section-title">Guest Reviews</h2>
+
             <p class="section-subtitle">Share your experience at Araliyā. Approved reviews appear below after verification.</p>
+
             <div class="divider"></div>
 
             <div class="review-form-card">
+
                 <form id="reviewForm">
+
                     <div class="review-form-grid">
+
                         <div class="review-field">
                             <label for="reviewerName">Your Name</label>
                             <input type="text" id="reviewerName" name="reviewerName" placeholder="e.g., Alex Morgan" required maxlength="80">
                         </div>
+
                         <div class="review-field">
                             <label for="reviewerRating">Rating</label>
                             <select id="reviewerRating" name="reviewerRating">
@@ -880,6 +924,7 @@
                                 <option value="1">★☆☆☆☆ (1)</option>
                             </select>
                         </div>
+
                     </div>
 
                     <div class="review-field" style="margin-bottom: 16px;">
@@ -888,109 +933,155 @@
                     </div>
 
                     <button type="submit" id="reviewSubmitBtn" class="review-submit-btn">Submit Review</button>
+
                     <p id="reviewStatusMsg" class="review-status-msg"></p>
+
                 </form>
             </div>
 
             <div class="reviews-carousel-wrapper">
+
                 <div class="reviews-carousel-header">
+
                     <span class="reviews-swipe-hint">
                         <i class="fas fa-arrows-left-right"></i>
                         <span>Swipe side-by-side to read more reviews</span>
                     </span>
+
                     <div class="reviews-nav-controls">
                         <button type="button" id="prevReviewBtn" class="review-nav-btn" aria-label="Previous review">
                             <i class="fas fa-chevron-left"></i>
                         </button>
+
                         <button type="button" id="nextReviewBtn" class="review-nav-btn" aria-label="Next review">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
+
                 </div>
 
                 <div id="reviewsList" class="reviews-list">
                     <div class="reviews-empty-state">Loading approved reviews...</div>
                 </div>
+
             </div>
         </section>
+
     </main>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/94779106300" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+
         <span class="whatsapp-icon-circle">
             <i class="fab fa-whatsapp"></i>
         </span>
+
         <span class="whatsapp-text-group">
             <span class="whatsapp-subtext">Need help?</span>
             <span class="whatsapp-maintext">Chat with us</span>
         </span>
+
     </a>
 
-    <!-- Footer (Contacts) -->
+    <!-- Footer -->
     <footer id="contacts">
+
         <div class="footer-content">
+
             <div>
                 <h3>Araliyā Ayurveda & Wellness</h3>
+
                 <p>No 73, Cinnamon Lodge, Habarana, Sri Lanka</p>
+
                 <p>Phone: <a href="https://wa.me/94779106300">+94 77 910 6300</a></p>
+
                 <p>Email: <a href="mailto:araliyaayurvedicspa@gmail.com">araliyaayurvedicspa@gmail.com</a></p>
             </div>
+
             <div>
                 <h3>Quick Links</h3>
+
                 <p><a href="index.html">Home</a></p>
                 <p><a href="menu.html">Menu</a></p>
                 <p><a href="offers.html">Offers</a></p>
                 <p><a href="safari.html">Boat Safari</a></p>
             </div>
+
         </div>
-        <div class="<div class="footer-bottom">
-    <div class="social-links-row" aria-label="Social and Booking Links">
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="YouTube" aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="TripAdvisor" aria-label="TripAdvisor">
-            <i class="fab fa-tripadvisor"></i>
-        </a>
-        <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Booking.com" aria-label="Booking.com">
-            <span>B.</span>
-        </a>
-        <a href="https://wa.me/94779106300" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="X (Twitter)" aria-label="X (Twitter)">
-            <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-    </div>
-    <p>Araliyā Ayurvedic & Wellness Retreat is a Sri Lanka</p>
+
+        <!-- FIXED FOOTER BOTTOM -->
+        <div class="footer-bottom">
+
+            <!-- Social Media Icons -->
+            <div class="social-links-row" aria-label="Social and Booking Links">
+
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="YouTube" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="TripAdvisor" aria-label="TripAdvisor">
+                    <i class="fab fa-tripadvisor"></i>
+                </a>
+
+                <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Booking.com" aria-label="Booking.com">
+                    <span>B.</span>
+                </a>
+
+                <a href="https://wa.me/94779106300" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="X (Twitter)" aria-label="X (Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+            </div>
+
+            <!-- Centered Footer Text -->
+            <p>Araliyā Ayurvedic & Wellness Retreat is a Sri Lanka</p>
+
             <p>Tourism Development Authority approved Ayurveda</p>
+
             <p>Wellness Retreat</p>
-    <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
-    </div>
+
+            <p>© 2026 - All Rights Reserved | Crafted with sadew❤️</p>
+
+        </div>
+
     </footer>
 
-    <!-- Scroll Reveal & Our Place Single-Card Slideshow Script -->
+    <!-- Scroll Reveal & Slideshow Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
             const revealItems = document.querySelectorAll(".reveal-on-scroll");
 
             if ("IntersectionObserver" in window) {
+
                 const observer = new IntersectionObserver(
                     (entries, obs) => {
+
                         entries.forEach((entry) => {
+
                             if (entry.isIntersecting) {
                                 entry.target.classList.add("is-visible");
                                 obs.unobserve(entry.target);
                             }
+
                         });
+
                     },
                     {
                         threshold: 0.15,
@@ -999,8 +1090,11 @@
                 );
 
                 revealItems.forEach((item) => observer.observe(item));
+
             } else {
+
                 revealItems.forEach((item) => item.classList.add("is-visible"));
+
             }
 
             const placeSlides = [
@@ -1041,9 +1135,11 @@
             let currentIndex = 0;
             let autoTimer = null;
             let fadeTimeout = null;
+
             const AUTO_DELAY_MS = 4500;
 
             if (cardEl && imgEl && placeSlides.length > 0) {
+
                 dotsEl.innerHTML = placeSlides.map((_, idx) =>
                     `<button type="button" class="place-dot ${idx === 0 ? "active" : ""}" data-index="${idx}" aria-label="Go to photo ${idx + 1}"></button>`
                 ).join("");
@@ -1051,196 +1147,317 @@
                 const dotButtons = Array.from(dotsEl.querySelectorAll(".place-dot"));
 
                 function updateDots(idx) {
+
                     dotButtons.forEach((dot, i) => {
                         dot.classList.toggle("active", i === idx);
                     });
+
                     counterEl.textContent = `${idx + 1} / ${placeSlides.length}`;
                 }
 
                 function showSlide(nextIdx) {
+
                     const normalizedIdx = (nextIdx + placeSlides.length) % placeSlides.length;
+
                     if (normalizedIdx === currentIndex && !imgEl.classList.contains("is-fading")) return;
 
                     clearTimeout(fadeTimeout);
+
                     imgEl.classList.add("is-fading");
 
                     fadeTimeout = setTimeout(() => {
+
                         currentIndex = normalizedIdx;
+
                         const slide = placeSlides[currentIndex];
+
                         imgEl.src = slide.src;
                         imgEl.alt = slide.caption;
                         captionEl.textContent = slide.caption;
+
                         updateDots(currentIndex);
+
                         imgEl.classList.remove("is-fading");
+
                     }, 900);
                 }
 
                 function startAutoPlay() {
+
                     stopAutoPlay();
+
                     autoTimer = setInterval(() => {
                         showSlide(currentIndex + 1);
                     }, AUTO_DELAY_MS);
+
                 }
 
                 function stopAutoPlay() {
+
                     if (autoTimer) {
                         clearInterval(autoTimer);
                         autoTimer = null;
                     }
+
                 }
 
                 if (prevBtn) {
+
                     prevBtn.addEventListener("click", () => {
                         showSlide(currentIndex - 1);
                         startAutoPlay();
                     });
+
                 }
 
                 if (nextBtn) {
+
                     nextBtn.addEventListener("click", () => {
                         showSlide(currentIndex + 1);
                         startAutoPlay();
                     });
+
                 }
 
                 dotButtons.forEach((dot) => {
+
                     dot.addEventListener("click", () => {
+
                         const idx = Number(dot.getAttribute("data-index"));
+
                         showSlide(idx);
+
                         startAutoPlay();
+
                     });
+
                 });
 
                 cardEl.addEventListener("mouseenter", stopAutoPlay);
                 cardEl.addEventListener("mouseleave", startAutoPlay);
+
                 cardEl.addEventListener("touchstart", stopAutoPlay, { passive: true });
+
                 cardEl.addEventListener("touchend", () => {
                     setTimeout(startAutoPlay, 2000);
                 }, { passive: true });
 
                 startAutoPlay();
+
             }
+
         });
     </script>
 
     <!-- Google Sheets Approved Reviews Script -->
     <script>
+
         const REVIEW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuoHdpQ7v9ELaDg6QHRnFcT1kn331wrqUepnqgQD0OfFhXL2bNQBSfkaizchVvLR0l/exec";
 
         function escapeHtml(text) {
+
             const div = document.createElement("div");
+
             div.textContent = text;
+
             return div.innerHTML;
+
         }
 
         function renderStars(count) {
+
             const n = Math.max(1, Math.min(5, Number(count) || 5));
+
             return "★".repeat(n) + "☆".repeat(5 - n);
+
         }
 
         async function loadApprovedReviews() {
+
             const listEl = document.getElementById("reviewsList");
+
             if (!REVIEW_WEB_APP_URL || REVIEW_WEB_APP_URL.includes("PASTE_YOUR_WEB_APP_URL_HERE")) {
+
                 listEl.innerHTML = '<div class="reviews-empty-state">Add your Google Apps Script Web App URL to load approved reviews.</div>';
+
                 return;
+
             }
 
             try {
+
                 const res = await fetch(REVIEW_WEB_APP_URL);
+
                 const data = await res.json();
+
                 const reviews = data.reviews || [];
 
                 if (!reviews.length) {
+
                     listEl.innerHTML = '<div class="reviews-empty-state">No approved reviews yet. Be the first to share your experience!</div>';
+
                     return;
+
                 }
 
                 listEl.innerHTML = reviews.map((r) => `
+
                     <article class="review-item-card">
+
                         <div>
+
                             <div class="review-item-top">
+
                                 <span class="review-author">${escapeHtml(r.name)}</span>
+
                                 <span class="review-stars">${renderStars(r.rating)}</span>
+
                             </div>
+
                             ${r.date ? `<div class="review-date">${escapeHtml(r.date)}</div>` : ""}
+
                         </div>
+
                         <p class="review-comment">${escapeHtml(r.comment)}</p>
+
                     </article>
+
                 `).join("");
+
             } catch (err) {
+
                 listEl.innerHTML = '<div class="reviews-empty-state">Unable to load reviews right now.</div>';
+
             }
+
         }
 
         document.addEventListener("DOMContentLoaded", function () {
+
             loadApprovedReviews();
 
             const listEl = document.getElementById("reviewsList");
+
             const prevBtn = document.getElementById("prevReviewBtn");
+
             const nextBtn = document.getElementById("nextReviewBtn");
 
             function getSlideStep() {
+
                 const firstCard = listEl.querySelector(".review-item-card");
+
                 if (!firstCard) return 320;
+
                 return firstCard.getBoundingClientRect().width + 18;
+
             }
 
             if (prevBtn) {
+
                 prevBtn.addEventListener("click", function () {
-                    listEl.scrollBy({ left: -getSlideStep(), behavior: "smooth" });
+
+                    listEl.scrollBy({
+                        left: -getSlideStep(),
+                        behavior: "smooth"
+                    });
+
                 });
+
             }
 
             if (nextBtn) {
+
                 nextBtn.addEventListener("click", function () {
-                    listEl.scrollBy({ left: getSlideStep(), behavior: "smooth" });
+
+                    listEl.scrollBy({
+                        left: getSlideStep(),
+                        behavior: "smooth"
+                    });
+
                 });
+
             }
 
             const form = document.getElementById("reviewForm");
+
             const statusEl = document.getElementById("reviewStatusMsg");
+
             const submitBtn = document.getElementById("reviewSubmitBtn");
 
             form.addEventListener("submit", async function (e) {
+
                 e.preventDefault();
 
                 const name = document.getElementById("reviewerName").value.trim();
+
                 const rating = document.getElementById("reviewerRating").value;
+
                 const comment = document.getElementById("reviewerComment").value.trim();
 
                 if (!name || !comment) return;
 
                 if (!REVIEW_WEB_APP_URL || REVIEW_WEB_APP_URL.includes("PASTE_YOUR_WEB_APP_URL_HERE")) {
+
                     statusEl.style.color = "#b45309";
+
                     statusEl.textContent = "Please set your Google Apps Script Web App URL first.";
+
                     return;
+
                 }
 
                 submitBtn.disabled = true;
+
                 submitBtn.textContent = "Submitting...";
+
                 statusEl.style.color = "#1a3328";
+
                 statusEl.textContent = "";
 
                 try {
+
                     await fetch(REVIEW_WEB_APP_URL, {
+
                         method: "POST",
+
                         mode: "no-cors",
-                        headers: { "Content-Type": "text/plain;charset=utf-8" },
-                        body: JSON.stringify({ name, rating, comment })
+
+                        headers: {
+                            "Content-Type": "text/plain;charset=utf-8"
+                        },
+
+                        body: JSON.stringify({
+                            name,
+                            rating,
+                            comment
+                        })
+
                     });
 
                     form.reset();
+
                     statusEl.style.color = "#15803d";
+
                     statusEl.textContent = "Thank you! Your review has been sent for approval.";
+
                 } catch (err) {
+
                     statusEl.style.color = "#b91c1c";
+
                     statusEl.textContent = "Something went wrong. Please try again.";
+
                 } finally {
+
                     submitBtn.disabled = false;
+
                     submitBtn.textContent = "Submit Review";
+
                 }
+
             });
+
         });
+
     </script>
 
 </body>
